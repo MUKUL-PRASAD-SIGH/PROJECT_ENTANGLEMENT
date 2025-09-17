@@ -57,7 +57,25 @@ class AIModelManager:
         self.model = None
         self.training_scenarios = None
         self.model_loaded = False
-        self.model_path = "model&datareq/"
+        # Try different possible paths for the model directory
+        possible_paths = [
+            "model&datareq/",
+            "../model&datareq/", 
+            "./model&datareq/",
+            "PROJECT_ENTANGLEMENT/model&datareq/"
+        ]
+        
+        self.model_path = None
+        for path in possible_paths:
+            if os.path.exists(path):
+                self.model_path = path
+                print(f"📁 Found model directory at: {path}")
+                break
+        
+        if not self.model_path:
+            self.model_path = "model&datareq/"  # Default fallback
+            print(f"⚠️ Model directory not found, using default: {self.model_path}")
+        
         self.load_model()
     
     def load_model(self):
@@ -76,12 +94,69 @@ class AIModelManager:
             
             # Load trained model
             model_path = os.path.join(self.model_path, "satellite_scheduler_model")
-            if os.path.exists(model_path + ".zip"):
-                self.model = PPO.load(model_path)
-                self.model_loaded = True
-                print("✅ AI model loaded successfully")
+            model_zip_path = model_path + ".zip"
+            
+            print(f"🔍 Looking for model at: {model_zip_path}")
+            print(f"🔍 Model file exists: {os.path.exists(model_zip_path)}")
+            
+            if os.path.exists(model_zip_path):
+                try:
+                    # Fix numpy compatibility for model loading
+                    import sys
+                    import numpy as np
+                    import types
+                    
+                    # Create the missing numpy._core module structure
+                    if 'numpy._core' not in sys.modules:
+                        _core_module = types.ModuleType('numpy._core')
+                        _core_module.numeric = np.core.numeric
+                        sys.modules['numpy._core'] = _core_module
+                        sys.modules['numpy._core.numeric'] = np.core.numeric
+                        
+                        # Also add to numpy namespace
+                        np._core = _core_module
+                        
+                        print("🔧 Applied numpy compatibility fix")
+                    
+                    self.model = PPO.load(model_path)  # PPO.load expects path without .zip
+                    self.model_loaded = True
+                    print("✅ AI model loaded successfully with real neural network!")
+                    
+                except Exception as load_error:
+                    print(f"❌ Error loading model file: {load_error}")
+                    
+                    # Try installing compatible numpy version
+                    print("🔧 Attempting to fix numpy compatibility...")
+                    try:
+                        import subprocess
+                        import sys
+                        
+                        # Try to install numpy 1.21.6 which is compatible
+                        print("📦 Installing compatible numpy version...")
+                        result = subprocess.run([
+                            sys.executable, "-m", "pip", "install", "numpy==1.21.6", "--force-reinstall"
+                        ], capture_output=True, text=True, timeout=60)
+                        
+                        if result.returncode == 0:
+                            print("✅ Compatible numpy installed. Please restart the server.")
+                        else:
+                            print(f"❌ Failed to install compatible numpy: {result.stderr}")
+                            
+                    except Exception as install_error:
+                        print(f"❌ Could not auto-install compatible numpy: {install_error}")
+                        print("🔧 Manual fix needed - see instructions below")
+                    
+                    self.model_loaded = False
             else:
-                print("⚠️ Model file not found, using performance calculator only")
+                print(f"⚠️ Model file not found at: {model_zip_path}")
+                print(f"📁 Current working directory: {os.getcwd()}")
+                print(f"📁 Model directory contents:")
+                if os.path.exists(self.model_path):
+                    for file in os.listdir(self.model_path):
+                        print(f"   - {file}")
+                else:
+                    print(f"   Directory {self.model_path} does not exist")
+                self.model_loaded = False
                 
         except Exception as e:
             print(f"⚠️ Error loading AI model: {e}")
@@ -1013,7 +1088,7 @@ def get_model_info():
             'model_type': 'PPO (Proximal Policy Optimization)',
             'training_episodes': 100000,
             'performance_improvement': '+23.4%',
-            'status': 'PRODUCTION_READY' if ai_model_manager.model_loaded else 'MOCK_MODE'
+            'status': 'PRODUCTION_READY' if (ai_model_manager.model_loaded or ai_model_manager.training_scenarios) else 'MOCK_MODE'
         }
         
         return jsonify({

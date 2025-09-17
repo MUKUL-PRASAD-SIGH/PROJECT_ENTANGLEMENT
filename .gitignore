@@ -6,6 +6,7 @@ __pycache__/
 env/
 venv/
 .venv/
+venv310/
 pip-log.txt
 .tox/
 .coverage
