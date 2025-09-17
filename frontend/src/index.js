@@ -29,17 +29,17 @@ class FloatingStars {
     // Insert at the beginning of body
     document.body.insertBefore(this.starsContainer, document.body.firstChild);
 
-    // Create initial stars
-    this.createStars(120);
+    // No initial stars - clean start
+    // this.createStars(8); // Removed initial star creation
 
-    // Start periodic shooting stars
+    // Start periodic shooting stars (extremely infrequent)
     this.startShootingStars();
 
-    // Periodically add more stars to keep it dynamic
+    // Minimal star maintenance (only for shooting stars cleanup)
     this.startStarMaintenance();
   }
 
-  createStars(count = 120) {
+  createStars(count = 8) {
     for (let i = 0; i < count; i++) {
       this.createStar();
     }
@@ -96,52 +96,67 @@ class FloatingStars {
     shootingStar.style.top = Math.random() * 40 + '%';
     shootingStar.style.left = '-100px';
 
-    // Small random delay
-    shootingStar.style.animationDelay = Math.random() * 0.5 + 's';
+    // Extremely slow animation with random duration between 10-20 seconds
+    const duration = 10 + Math.random() * 10; // 10-20 seconds for extremely slow, graceful movement
+    shootingStar.style.animationDuration = duration + 's';
+
+    // Random delay before appearing (0-5 seconds)
+    shootingStar.style.animationDelay = Math.random() * 5 + 's';
 
     this.starsContainer.appendChild(shootingStar);
 
-    // Remove after animation completes
+    // Remove after animation completes (add buffer time for longer duration)
     setTimeout(() => {
       if (shootingStar.parentNode) {
         shootingStar.parentNode.removeChild(shootingStar);
       }
-    }, 3500);
+    }, (duration + 5) * 1000);
   }
 
   startShootingStars() {
-    // First shooting star after 3 seconds
+    // First shooting star after 5-10 minutes (extremely long wait)
+    const firstDelay = 300000 + Math.random() * 300000; // 5-10 minutes
     setTimeout(() => {
       this.createShootingStar();
 
-      // Then every 8 seconds with some randomization
-      setInterval(() => {
-        // 70% chance to create shooting star every 8 seconds
-        if (Math.random() < 0.7) {
-          this.createShootingStar();
-        }
-      }, 8000);
-    }, 3000);
+      // Then create shooting stars at ultra-long, random intervals
+      const scheduleNextShootingStar = () => {
+        // Random interval between 10-30 minutes (extremely infrequent)
+        const nextInterval = 600000 + Math.random() * 1200000; // 10-30 minutes
+        
+        setTimeout(() => {
+          // Only 5% chance to create shooting star when interval hits (ultra rare)
+          if (Math.random() < 0.05) {
+            this.createShootingStar();
+          }
+          // Schedule the next one regardless
+          scheduleNextShootingStar();
+        }, nextInterval);
+      };
+
+      scheduleNextShootingStar();
+    }, firstDelay);
   }
 
   startStarMaintenance() {
-    // Add new stars periodically to maintain density
+    // Minimal cleanup - only remove old shooting stars if needed
     setInterval(() => {
-      if (this.starsContainer && this.starsContainer.querySelectorAll('.star').length < 150) {
-        this.createStar();
+      if (this.starsContainer) {
+        const shootingStars = this.starsContainer.querySelectorAll('.shooting-star');
+        // Clean up any orphaned shooting stars older than 30 seconds
+        shootingStars.forEach(star => {
+          if (star.style.animationPlayState === 'paused' || 
+              star.style.opacity === '0') {
+            star.remove();
+          }
+        });
       }
-    }, 12000);
+    }, 30000); // Cleanup every 30 seconds
 
-    // Occasionally create small bursts of stars
-    setInterval(() => {
-      if (Math.random() < 0.3) { // 30% chance every 30 seconds
-        for (let i = 0; i < 3; i++) {
-          setTimeout(() => this.createStar(), i * 500);
-        }
-      }
-    }, 30000);
+    // No regular star creation - only shooting stars now
   }
-}
+  }
+
 
 // Initialize floating stars
 const floatingStars = new FloatingStars();

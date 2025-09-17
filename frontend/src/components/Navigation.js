@@ -5,11 +5,11 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: '3D Globe', icon: '�' },
-    { path: '/dashboard', label: 'Dashboard', icon: '�' },
-    { path: '/satellites', label: 'Satellites', icon: '🛰️' },
-    { path: '/schedule', label: 'Schedule', icon: '📅' },
-    { path: '/analytics', label: 'Analytics', icon: '📈' }
+    { path: '/', label: '3D Globe' },
+    { path: '/dashboard', label: 'Dashboard'},
+    { path: '/satellites', label: 'Satellites' },
+    { path: '/schedule', label: 'Schedule'},
+    { path: '/analytics', label: 'Analytics'}
   ];
 
   return (
@@ -20,7 +20,7 @@ const Navigation = () => {
           <div style={lightBeamStyle}></div>
           <div style={satelliteStyle}>🛰️</div>
         </div>
-        <h2 style={titleStyle}>Project Astraeus</h2>
+        <h2 style={titleStyle}>Astraeus</h2>
       </div>
       <div style={linksStyle}>
         {navItems.map(item => (
@@ -81,9 +81,9 @@ const linkStyle = {
   display: 'flex',
   alignItems: 'center',
   gap: '8px',
-  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+  background: 'linear-gradient(135deg, #1d244427 0%, #29193932 100%)',
   border: '2px solid transparent',
-  boxShadow: '0 8px 32px rgba(102, 126, 234, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+  boxShadow: '0 8px 32px rgba(24, 29, 53, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
   transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
   fontWeight: '600',
   fontSize: '14px',
@@ -94,7 +94,7 @@ const linkStyle = {
 };
 
 const activeLinkStyle = {
-  background: 'linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%)',
+  background: 'linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dafb77 100%)',
   boxShadow: '0 12px 40px rgba(255, 107, 107, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
   transform: 'translateY(-2px) scale(1.05)',
   border: '2px solid rgba(255, 255, 255, 0.3)',

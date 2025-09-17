@@ -1,7 +1,7 @@
 {
   "name": "project-astraeus-frontend",
   "version": "1.0.0",
-  "description": "Project Astraeus - AI-Powered Mission Control Frontend",
+  "description": "Astraeus - AI-Powered Mission Control Frontend",
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",

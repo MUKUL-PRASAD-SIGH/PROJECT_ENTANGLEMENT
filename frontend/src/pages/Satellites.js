@@ -14,9 +14,9 @@ const Satellites = () => {
   if (hasError) {
     return (
       <div style={{padding: '20px'}}>
-        <h1>🛰️ Satellite Management</h1>
+        <h1>Satellite Management</h1>
         <div style={{background: 'rgba(255,0,0,0.1)', padding: '20px', borderRadius: '10px'}}>
-          <h3>⚠️ Component Error</h3>
+          <h3>Component Error</h3>
           <p>The satellite management interface encountered an error.</p>
           <button 
             className="btn" 
@@ -224,11 +224,11 @@ const Satellites = () => {
   try {
     return (
       <div>
-        <h1>🛰️ Satellite Management</h1>
+        <h1>Satellite Management</h1>
       
       {/* Control Panel */}
       <div className="card">
-        <h2>🎛️ Satellite Control Panel <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
+        <h2>Satellite Control Panel <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={controlPanelStyle}>
           <div style={controlGroupStyle}>
             <label><strong>Selected Satellite:</strong></label>
@@ -267,10 +267,10 @@ const Satellites = () => {
 
       {/* Satellite Detail Cards */}
       <div className="card">
-        <h2>🛰️ Active Satellites <span style={{color: isConnected ? '#00ff00' : '#ff0000', fontSize: '12px'}}>({isConnected ? 'LIVE' : 'MOCK'})</span></h2>
+        <h2>Active Satellites <span style={{color: isConnected ? '#00ff00' : '#ff0000', fontSize: '12px'}}>({isConnected ? 'LIVE' : 'MOCK'})</span></h2>
         <div style={satelliteGridStyle}>
           {satellites.map(satellite => (
-            <div key={satellite.id} style={satelliteCardStyle}>
+            <div key={satellite.id} style={satelliteCardStyle} className="satellite-item">
               <div style={satelliteHeaderStyle}>
                 <h3>{satellite.name}</h3>
                 <div style={statusIndicatorStyle(satellite.status)}>
@@ -280,7 +280,7 @@ const Satellites = () => {
               
               {/* Orbital Parameters */}
               <div style={parameterSectionStyle}>
-                <h4>🌍 Orbital Parameters</h4>
+                <h4>Orbital Parameters</h4>
                 <div style={parameterGridStyle}>
                   <div><strong>Altitude:</strong> {satellite.altitude} km</div>
                   <div><strong>Speed:</strong> {satellite.speed.toLocaleString()} km/h</div>
@@ -291,7 +291,7 @@ const Satellites = () => {
               
               {/* Hardware Status */}
               <div style={parameterSectionStyle}>
-                <h4>⚡ Hardware Status</h4>
+                <h4>Hardware Status</h4>
                 <div style={hardwareGridStyle}>
                   <div style={hardwareItemStyle}>
                     <span>Power:</span>
@@ -313,7 +313,7 @@ const Satellites = () => {
               
               {/* Mission Info */}
               <div style={parameterSectionStyle}>
-                <h4>🎯 Mission Assignment</h4>
+                <h4>Mission Assignment</h4>
                 <div><strong>Current Mission:</strong> {satellite.mission}</div>
                 <div><strong>Priority:</strong> 
                   <span style={priorityStyle(satellite.priority)}>
@@ -337,21 +337,21 @@ const Satellites = () => {
         <h2>🌌 Advanced Orbital Mechanics <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={orbitalMechanicsStyle}>
           <div style={perturbationStyle}>
-            <h4>🌬️ Atmospheric Drag Effects</h4>
+            <h4>Atmospheric Drag Effects</h4>
             {satellites.map(sat => {
               const dragEffect = sat.altitude < 600 ? -3.2 : sat.altitude < 1000 ? -1.8 : -0.4;
               return <div key={sat.id}>{sat.name}: {dragEffect.toFixed(1)} m/s per day</div>;
             })}
           </div>
           <div style={perturbationStyle}>
-            <h4>☀️ Solar Radiation Pressure</h4>
+            <h4>Solar Radiation Pressure</h4>
             {satellites.map(sat => {
               const solarPressure = sat.altitude > 10000 ? +0.5 : sat.altitude > 1000 ? +0.3 : +0.1;
               return <div key={sat.id}>{sat.name}: +{solarPressure.toFixed(1)} m/s per day</div>;
             })}
           </div>
           <div style={perturbationStyle}>
-            <h4>🌙 Gravitational Perturbations</h4>
+            <h4>Gravitational Perturbations</h4>
             <div>Moon Effect: ±{(0.1 * Math.sin(Date.now() / 86400000 * 2 * Math.PI / 28)).toFixed(2)} m/s</div>
             <div>Sun Effect: ±{(0.05 * Math.sin(Date.now() / 86400000 * 2 * Math.PI / 365)).toFixed(3)} m/s</div>
             <div>Earth Oblateness: {(satellites.length * 0.02).toFixed(2)} deg/day precession</div>
@@ -361,24 +361,24 @@ const Satellites = () => {
 
       {/* Hardware Constraints Modeling */}
       <div className="card">
-        <h2>⚡ Hardware Constraints & Thermal Management <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
+        <h2>Hardware Constraints & Thermal Management <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={hardwareConstraintsStyle}>
           <div style={constraintCategoryStyle}>
-            <h4>🔋 Power Management</h4>
+            <h4>Power Management</h4>
             <div>Solar Panel Efficiency: {(22.5 - Math.random() * 2).toFixed(1)}%</div>
             <div>Active Satellites: {satellites.filter(s => s.status === 'active').length}</div>
             <div>Total Power Budget: {(satellites.length * 180 + Math.random() * 100).toFixed(0)}W</div>
             <div>Eclipse Duration: {satellites.length > 0 ? Math.round(satellites[0].period * 0.38) : 35} min/orbit</div>
           </div>
           <div style={constraintCategoryStyle}>
-            <h4>🌡️ Thermal Constraints</h4>
+            <h4>Thermal Constraints</h4>
             <div>Operating Range: -40°C to +85°C</div>
             <div>Current Temp: {(20 + Math.random() * 10).toFixed(0)}°C (nominal)</div>
             <div>Thermal Cycling: {Math.round(1440 / (satellites.length > 0 ? satellites[0].period : 90))} cycles/day</div>
             <div>Radiator Efficiency: {(92 + Math.random() * 4).toFixed(1)}%</div>
           </div>
           <div style={constraintCategoryStyle}>
-            <h4>💾 Data Storage Limits</h4>
+            <h4>Data Storage Limits</h4>
             <div>Total Capacity: {(satellites.length * 0.5).toFixed(1)} TB solid-state</div>
             <div>Current Usage: {Math.round(satellites.reduce((sum, sat) => sum + sat.dataStorage, 0) / satellites.length)}%</div>
             <div>Active Satellites: {satellites.length} systems</div>
@@ -389,33 +389,33 @@ const Satellites = () => {
 
       {/* Mission Priority Hierarchies */}
       <div className="card">
-        <h2>🎯 Mission Priority & Emergency Protocols <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+        <h2>Mission Priority & Emergency Protocols <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
         <div style={prioritySystemStyle}>
           <div style={priorityLevelStyle}>
-            <h4>🚨 EMERGENCY (Priority 1)</h4>
-            <div>🔥 Wildfire Monitoring: Immediate data relay</div>
-            <div>🌊 Tsunami Warning: 30-second response time</div>
-            <div>🚀 Crew Safety: ISS emergency communications</div>
-            <div>📰 Military: Classified payload priority</div>
+            <h4>EMERGENCY (Priority 1)</h4>
+            <div>Wildfire Monitoring: Immediate data relay</div>
+            <div>Tsunami Warning: 30-second response time</div>
+            <div>Crew Safety: ISS emergency communications</div>
+            <div>Military: Classified payload priority</div>
           </div>
           <div style={priorityLevelStyle}>
-            <h4>🔴 HIGH (Priority 2)</h4>
-            <div>🔭 Scientific Research: Hubble observations</div>
-            <div>🗺️ Navigation: GPS constellation maintenance</div>
-            <div>🌍 Earth Observation: Climate monitoring</div>
+            <h4>HIGH (Priority 2)</h4>
+            <div>Scientific Research: Hubble observations</div>
+            <div>Navigation: GPS constellation maintenance</div>
+            <div>Earth Observation: Climate monitoring</div>
           </div>
           <div style={priorityLevelStyle}>
-            <h4>🟡 NORMAL (Priority 3)</h4>
-            <div>📶 Internet: Starlink user traffic</div>
-            <div>📺 Broadcasting: Satellite TV/radio</div>
-            <div>📞 Communications: Standard voice/data</div>
+            <h4>NORMAL (Priority 3)</h4>
+            <div>Internet: Starlink user traffic</div>
+            <div>Broadcasting: Satellite TV/radio</div>
+            <div>Communications: Standard voice/data</div>
           </div>
         </div>
       </div>
 
       {/* Weather Integration */}
       <div className="card">
-        <h2>🌤️ Weather & Atmospheric Conditions <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
+        <h2>Weather & Atmospheric Conditions <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={weatherGridStyle}>
           {groundStations.map(station => {
             const temp = station.elevation > 500 ? 25 + Math.random() * 8 : 28 + Math.random() * 10;
@@ -424,11 +424,11 @@ const Satellites = () => {
             return (
               <div key={station.id} style={weatherStationStyle}>
                 <h4>{station.name}</h4>
-                <div>🌤️ Weather: {station.weather}</div>
-                <div>🌡️ Temperature: {temp.toFixed(0)}°C</div>
-                <div>💨 Wind: {Math.round(5 + Math.random() * 15)} km/h</div>
-                <div>💧 Humidity: {humidity.toFixed(0)}%</div>
-                <div>🌫️ Atmospheric Opacity: {opacity.toFixed(2)} ({opacity < 0.15 ? 'excellent' : opacity < 0.25 ? 'good' : 'fair'})</div>
+                <div>Weather: {station.weather}</div>
+                <div>Temperature: {temp.toFixed(0)}°C</div>
+                <div>Wind: {Math.round(5 + Math.random() * 15)} km/h</div>
+                <div>Humidity: {humidity.toFixed(0)}%</div>
+                <div>Atmospheric Opacity: {opacity.toFixed(2)} ({opacity < 0.15 ? 'excellent' : opacity < 0.25 ? 'good' : 'fair'})</div>
               </div>
             );
           })}
@@ -437,10 +437,10 @@ const Satellites = () => {
 
       {/* Ground Stations */}
       <div className="card">
-        <h2>🌍 Ground Stations <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
+        <h2>Ground Stations <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={stationGridStyle}>
           {groundStations.map(station => (
-            <div key={station.id} style={stationCardStyle}>
+            <div key={station.id} style={stationCardStyle} className="station-item">
               <div style={stationHeaderStyle}>
                 <h3>{station.name}</h3>
                 <div style={statusIndicatorStyle(station.status)}>
@@ -449,12 +449,12 @@ const Satellites = () => {
               </div>
               
               <div style={stationInfoStyle}>
-                <div><strong>📍 Location:</strong> {station.location}</div>
-                <div><strong>🌤️ Weather:</strong> {station.weather}</div>
-                <div><strong>⛰️ Elevation:</strong> {station.elevation}m</div>
-                <div><strong>📡 Active Connections:</strong> {station.activeConnections}</div>
+                <div><strong>Location:</strong> {station.location}</div>
+                <div><strong>Weather:</strong> {station.weather}</div>
+                <div><strong>Elevation:</strong> {station.elevation}m</div>
+                <div><strong>Active Connections:</strong> {station.activeConnections}</div>
                 <div style={hardwareItemStyle}>
-                  <span><strong>💾 Capacity:</strong></span>
+                  <span><strong>Capacity:</strong></span>
                   <div style={progressBarStyle}>
                     <div style={{...progressFillStyle, width: `${station.capacity}%`, backgroundColor: station.capacity < 80 ? '#00ff00' : station.capacity < 90 ? '#ffff00' : '#ff0000'}}></div>
                   </div>
@@ -494,11 +494,16 @@ const controlGroupStyle = {
 };
 
 const selectStyle = {
-  background: 'rgba(255, 255, 255, 0.1)',
-  border: '1px solid rgba(255, 255, 255, 0.3)',
+  background: 'linear-gradient(45deg, #1a1327, #252147, #2d2a5f)',
+  border: '1px solid rgba(255, 215, 0, 0.1)',
   color: 'white',
-  padding: '8px',
-  borderRadius: '5px'
+  padding: '12px',
+  borderRadius: '8px',
+  fontFamily: "'Orbitron', 'Exo 2', monospace",
+  fontSize: '14px',
+  fontWeight: '600',
+  letterSpacing: '0.08em',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const actionButtonsStyle = {
