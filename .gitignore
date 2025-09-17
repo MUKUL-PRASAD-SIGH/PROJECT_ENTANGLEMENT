@@ -31,5 +31,14 @@ Thumbs.db
 # Dependencies
 node_modules/
 
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+astraeus.db
+
+# Data files
+optimization_history.json
+
 # Exclude parent directories
 ../

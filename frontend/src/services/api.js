@@ -223,6 +223,32 @@ class ApiService {
     }
   }
 
+  /**
+   * Get optimization history with real training results
+   */
+  async getOptimizationHistory() {
+    try {
+      const response = await axios.get(`${this.baseURL}/optimization/history`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching optimization history:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Save optimization entry to history
+   */
+  async saveOptimizationEntry(entry) {
+    try {
+      const response = await axios.post(`${this.baseURL}/optimization/history`, entry);
+      return response.data;
+    } catch (error) {
+      console.error('Error saving optimization entry:', error);
+      throw error;
+    }
+  }
+
   // ========================
   // Communication Windows
   // ========================
