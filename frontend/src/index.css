@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Orbitron', 'Exo 2', 'Space Mono', monospace, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #0a0a0a;
@@ -10,6 +8,8 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  letter-spacing: 0.05em;
+  font-weight: 400;
 }
 
 /* Realistic Star Field */
@@ -80,6 +80,134 @@ body::after {
   --star-pos-15: 95% 25%;
 }
 
+/* ===== ORBITRON SPACE FONT STYLING ===== */
+* {
+  font-family: 'Orbitron', 'Exo 2', 'Space Mono', monospace, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav, .navigation, .btn, .button, button, input[type="button"], input[type="submit"] {
+  font-family: 'Orbitron', 'Exo 2', monospace !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dashboard-title, .mission-control, .satellite-name {
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.data-display, .metrics, .coordinates {
+  font-family: 'Space Mono', 'Orbitron', monospace !important;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+/* ===== SHOOTING STARS EFFECT CSS ===== */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 3s ease-in-out infinite alternate, float 8s ease-in-out infinite;
+}
+
+.star.small {
+  width: 1px;
+  height: 1px;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.star.medium {
+  width: 2px;
+  height: 2px;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.star.large {
+  width: 3px;
+  height: 3px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 1);
+}
+
+.star.blue-tint {
+  background: #e6f3ff;
+  box-shadow: 0 0 4px rgba(230, 243, 255, 0.8);
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: linear-gradient(45deg, transparent, #ffffff, transparent);
+  border-radius: 50%;
+  opacity: 0;
+  animation: shoot linear forwards;
+}
+
+.shooting-star.blue-tint {
+  background: linear-gradient(45deg, transparent, #e6f3ff, transparent);
+}
+
+.shooting-star::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100px;
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  border-radius: 2px;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-10px) translateX(5px); }
+  50% { transform: translateY(5px) translateX(-5px); }
+  75% { transform: translateY(-5px) translateX(10px); }
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) translateY(0px);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(calc(100vw + 100px)) translateY(50vh);
+  }
+}
+
 /* Real-Time Dashboard Components */
 .dashboard-section {
   margin: 20px 0;
@@ -132,8 +260,13 @@ body::after {
 }
 
 .satellite-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(147, 112, 219, 0.4),
+    0 0 35px rgba(138, 43, 226, 0.3);
+  border: 1px solid rgba(147, 112, 219, 0.5);
+  background: rgba(147, 112, 219, 0.08);
 }
 
 .satellite-header {
@@ -244,8 +377,13 @@ body::after {
 }
 
 .window-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(147, 112, 219, 0.4),
+    0 0 35px rgba(138, 43, 226, 0.3);
+  border: 1px solid rgba(147, 112, 219, 0.5);
+  background: rgba(147, 112, 219, 0.08);
 }
 
 .window-header {
@@ -337,8 +475,13 @@ body::after {
 }
 
 .metric-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(147, 112, 219, 0.4),
+    0 0 35px rgba(138, 43, 226, 0.3);
+  border: 1px solid rgba(147, 112, 219, 0.5);
+  background: rgba(147, 112, 219, 0.08);
 }
 
 .metric-header {
@@ -425,6 +568,10 @@ body::after {
   padding: 5px 10px;
   font-size: 12px;
   border-radius: 6px;
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 @keyframes twinkle-stars {
@@ -501,20 +648,38 @@ code {
   backdrop-filter: blur(0px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.508);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border: 1px solid rgba(147, 112, 219, 0.4);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(147, 112, 219, 0.3),
+    0 0 50px rgba(138, 43, 226, 0.2);
+  backdrop-filter: blur(10px);
+  background: rgba(147, 112, 219, 0.05);
 }
 
 .btn {
-  background: linear-gradient(45deg, #00bcd4, #0097a7);
+  font-family: 'Orbitron', 'Exo 2', monospace !important;
+  background: linear-gradient(45deg, #1a1327, #252147, #2d2a5f);
   color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
@@ -524,33 +689,34 @@ code {
 
 .btn:active {
   transform: translateY(1px) scale(0.95);
-  box-shadow: 0 2px 10px rgba(255, 107, 107, 0.6);
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2), 0 0 15px rgba(255, 215, 0, 0.1);
   transition: all 0.1s ease;
 }
 
 .btn:hover {
-  background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb);
+  background: linear-gradient(45deg, #2a2847, #3a3167, #423a7f);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15), 0 0 20px rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
   animation: pulse-glow 1.5s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15), 0 0 20px rgba(255, 215, 0, 0.1);
   }
   50% {
-    box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2), 0 0 25px rgba(255, 215, 0, 0.15);
   }
 }
 
 /* Navigation Button Animations */
 @keyframes glow {
   0% {
-    box-shadow: 0 12px 40px rgba(255, 107, 107, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   }
   100% {
-    box-shadow: 0 16px 50px rgba(255, 107, 107, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    box-shadow: 0 16px 50px rgba(255, 215, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 }
 
@@ -884,6 +1050,86 @@ a:hover::before {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Universal hover effects for any div that looks like a card */
+div[style*="background"]:hover,
+div[style*="border"]:hover,
+div[style*="padding"]:hover,
+div[style*="border-radius"]:hover {
+  transition: all 0.3s ease !important;
+}
+
+/* Additional card-like hover effects for inline styled elements */
+.card-hover,
+div[style*="rgba"]:hover,
+div[style*="linear-gradient"]:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(147, 112, 219, 0.3),
+    0 0 35px rgba(138, 43, 226, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Specific hover effects for algorithm cards, prediction cards, etc. */
+.algorithm-card:hover,
+.prediction-card:hover,
+.improvement-card:hover,
+.status-card:hover,
+.stat-card:hover,
+.satellite-item:hover,
+.station-item:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(147, 112, 219, 0.4),
+    0 0 50px rgba(138, 43, 226, 0.3) !important;
+  border: 1px solid rgba(147, 112, 219, 0.5) !important;
+  background: rgba(147, 112, 219, 0.08) !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Select dropdown styling to match buttons */
+select {
+  font-family: 'Orbitron', 'Exo 2', monospace !important;
+  background: linear-gradient(45deg, #1a1327, #252147, #2d2a5f) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 215, 0, 0.1) !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5) !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  outline: none !important;
+}
+
+select:hover {
+  background: linear-gradient(45deg, #2a2847, #3a3167, #423a7f) !important;
+  border: 1px solid rgba(255, 215, 0, 0.2) !important;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1) !important;
+}
+
+select:focus {
+  border: 1px solid rgba(255, 215, 0, 0.3) !important;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2) !important;
+}
+
+/* Style dropdown options */
+select option {
+  background: #1a1327 !important;
+  color: white !important;
+  padding: 8px !important;
+  font-family: 'Orbitron', 'Exo 2', monospace !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+}
+
+select option:hover {
+  background: #2d2a5f !important;
 }
 
 .slide-in {

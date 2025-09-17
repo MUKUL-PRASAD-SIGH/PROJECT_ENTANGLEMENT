@@ -79,22 +79,22 @@ const Dashboard = () => {
         if (response.status === 'success') {
           setWildfireProtocol(true);
           setEmergencyMode(true);
-          showNotification('warning', '🔥 WILDFIRE PROTOCOL ACTIVATED',
+          showNotification('warning', 'WILDFIRE PROTOCOL ACTIVATED',
             `Backend emergency mode activated - ${response.affected_satellites} satellites affected`, 8000);
         } else {
-          showNotification('error', '❌ Protocol Activation Failed',
+          showNotification('error', 'Protocol Activation Failed',
             'Failed to activate wildfire protocol via backend', 5000);
         }
       } else {
         // Deactivate (local state only for now)
         setWildfireProtocol(false);
         setEmergencyMode(false);
-        showNotification('success', '✅ Wildfire Protocol Deactivated',
+        showNotification('success', 'Wildfire Protocol Deactivated',
           'Returning to normal operation mode.', 5000);
       }
     } catch (error) {
       console.error('Error in wildfire protocol:', error);
-      showNotification('error', '❌ Protocol Error',
+      showNotification('error', 'Protocol Error',
         'Error communicating with backend', 5000);
     }
   };
@@ -103,15 +103,15 @@ const Dashboard = () => {
     try {
       const response = await ApiService.activateEmergency('earth_observation');
       if (response.status === 'success') {
-        showNotification('info', '📡 EARTH OBSERVATION PRIORITIZED',
+        showNotification('info', 'EARTH OBSERVATION PRIORITIZED',
           `Backend priority activated - ${response.priority_channels} priority channels established`, 7000);
       } else {
-        showNotification('error', '❌ Prioritization Failed',
+        showNotification('error', 'Prioritization Failed',
           'Failed to prioritize earth observation via backend', 5000);
       }
     } catch (error) {
       console.error('Error prioritizing earth observation:', error);
-      showNotification('error', '❌ Priority Error',
+      showNotification('error', 'Priority Error',
         'Error communicating with backend', 5000);
     }
   };
@@ -135,14 +135,14 @@ const Dashboard = () => {
           duration_hours: 24,
           start_time: getSafeISOString()
         });
-        showNotification('success', '🤖 AI TRAINING STARTED',
+        showNotification('success', 'AI TRAINING STARTED',
           `Deep Reinforcement Learning initiated with real satellite data. Processing ${response.summary?.total_satellites || 'N/A'} satellites, found ${response.summary?.total_windows || 'N/A'} communication windows.`, 10000);
       } catch (error) {
-        showNotification('info', '🤖 AI TRAINING STARTED (Offline Mode)',
+        showNotification('info', 'AI TRAINING STARTED (Offline Mode)',
           'Deep Reinforcement Learning initiated. Using cached satellite data for training.', 8000);
       }
     } else {
-      showNotification('info', '⏹️ AI Training Stopped',
+      showNotification('info', 'AI Training Stopped',
         'Model saved with current parameters', 5000);
     }
   };
@@ -153,10 +153,10 @@ const Dashboard = () => {
         duration_hours: 6,
         start_time: getSafeISOString()
       });
-      showNotification('success', '🎮 SIMULATION COMPLETE',
+      showNotification('success', 'SIMULATION COMPLETE',
         `Simulated ${response.duration_hours} hours of operations. Tracked ${response.summary?.total_satellites || 0} satellites, found ${response.summary?.total_windows || 0} communication windows. Processing time: ~${Math.round(Math.random() * 30 + 15)} seconds`, 8000);
     } catch (error) {
-      showNotification('info', '🎮 SIMULATION LAUNCHED',
+      showNotification('info', 'SIMULATION LAUNCHED',
         'Running orbital mechanics simulation with current parameters. Processing time: ~30 seconds (Backend connection failed - using offline mode)', 7000);
     }
   };
@@ -170,21 +170,21 @@ const Dashboard = () => {
         const response = await ApiService.activateEmergency('override');
         if (response.status === 'success') {
           setEmergencyMode(true);
-          showNotification('error', '🚨 EMERGENCY OVERRIDE ACTIVATED',
+          showNotification('error', 'EMERGENCY OVERRIDE ACTIVATED',
             `Backend override active - ${response.affected_satellites} satellites affected, ${response.priority_channels} priority channels opened.`, 8000);
         } else {
-          showNotification('error', '❌ Override Activation Failed',
+          showNotification('error', 'Override Activation Failed',
             'Failed to activate emergency override via backend', 5000);
         }
       } else {
         // Deactivate (local state only for now)
         setEmergencyMode(false);
-        showNotification('success', '✅ Emergency Override Deactivated',
+        showNotification('success', 'Emergency Override Deactivated',
           'Returning to normal operation mode.', 5000);
       }
     } catch (error) {
       console.error('Error in emergency override:', error);
-      showNotification('error', '❌ Override Error',
+      showNotification('error', 'Override Error',
         'Error communicating with backend', 5000);
     }
   };
@@ -209,10 +209,10 @@ const Dashboard = () => {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
 
-      showNotification('success', '📄 Schedule Exported Successfully',
+      showNotification('success', 'Schedule Exported Successfully',
         `Downloaded ${response.filename} with ${response.content.satellites?.length || 'N/A'} satellites and ${response.content.communication_windows?.length || 'N/A'} communication windows.`, 7000);
     } catch (error) {
-      showNotification('error', '📄 Export Failed',
+      showNotification('error', 'Export Failed',
         'Could not export schedule data. Please try again.', 5000);
     }
   };
@@ -226,10 +226,10 @@ const Dashboard = () => {
       if (file) {
         try {
           const response = await ApiService.importSchedule(file);
-          showNotification('success', '📥 Schedule Imported Successfully',
+          showNotification('success', 'Schedule Imported Successfully',
             `Imported ${response.imported_windows} communication windows for ${response.imported_satellites} satellites from ${response.filename}.`, 8000);
         } catch (error) {
-          showNotification('error', '📥 Import Failed',
+          showNotification('error', 'Import Failed',
             'Could not import schedule file. Please check the file format.', 5000);
         }
       }
@@ -260,10 +260,10 @@ const Dashboard = () => {
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
 
-      showNotification('success', '📊 Mission Report Generated',
+      showNotification('success', 'Mission Report Generated',
         `Comprehensive report downloaded with ${response.summary.total_satellites} satellites and ${response.summary.total_communication_windows} communication windows.`, 8000);
     } catch (error) {
-      showNotification('error', '� Report Generation Failed',
+      showNotification('error', 'Report Generation Failed',
         'Could not generate mission report. Please try again.', 5000);
     }
   };
@@ -274,7 +274,7 @@ const Dashboard = () => {
       const healthCheck = await fetch('http://localhost:5000/');
       const health = await healthCheck.json();
 
-      showNotification('success', '🔧 SYSTEM DIAGNOSTICS',
+      showNotification('success', 'SYSTEM DIAGNOSTICS',
         `✅ API Server: ${health.status || 'Unknown'} | ✅ Service: ${health.service || 'Project Entanglement'} | ✅ Version: ${health.version || '1.0.0'} | ✅ WebSocket: Connected | ✅ Database: Operational | ✅ Ground Stations: 3/3 online`, 10000);
     } catch (error) {
       showNotification('warning', '🔧 SYSTEM DIAGNOSTICS',
@@ -309,7 +309,7 @@ const Dashboard = () => {
   return (
     <div>
       <NotificationSystem />
-      <h1>🚀 Mission Control Dashboard</h1>
+      <h1>Mission Control Dashboard</h1>
 
       {/* Real-Time System Metrics */}
       <div className="dashboard-section">
@@ -328,7 +328,7 @@ const Dashboard = () => {
 
       {/* Performance Metrics Dashboard */}
       <div className="card">
-        <h2>📊 Performance Metrics</h2>
+        <h2>Performance Metrics</h2>
         <div style={metricsStyle}>
           <div style={metricStyle}>
             <h3>AI Efficiency Gain <span style={{ color: '#ff0000', fontSize: '12px' }}>(M)</span></h3>
@@ -345,12 +345,31 @@ const Dashboard = () => {
 
 
 
+      {/* AI Training Progress */}
+      <div className="card">
+        <h2>AI Training Monitor <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+        <div style={trainingStyle}>
+          <div style={progressBarContainer}>
+            <div style={progressBarStyle}>
+              Training Progress: {isTraining ? '15%' : '0%'} ({isTraining ? 'Training Active' : 'Ready to Start'})
+            </div>
+          </div>
+          <div style={trainingMetricsStyle}>
+            <div><strong>Episodes:</strong> {isTraining ? '150,000' : '0'} / 1,000,000</div>
+            <div><strong>Reward:</strong> {isTraining ? '+127.3' : 'N/A'}</div>
+            <div><strong>Learning Rate:</strong> 0.001</div>
+            <div><strong>GPU Usage:</strong> {isTraining ? '78%' : '0%'}</div>
+          </div>
+        </div>
+      </div>
+
       {/* Real-World Scenario Demo */}
       <div className="card">
-        <h2>🔥 Live Crisis Scenario <span style={{ color: '#ff0000', fontSize: '12px' }}>(M)</span></h2>
+        <h2>Live Crisis Scenario <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+
         <div style={crisisStyle}>
           <div style={crisisHeaderStyle}>
-            <h3>🚨 California Wildfire Emergency</h3>
+            <h3> California Wildfire Emergency</h3>
             <div style={crisisStatusStyle}>ACTIVE - Priority Override Enabled</div>
           </div>
           <div style={crisisMetricsStyle}>
@@ -365,14 +384,14 @@ const Dashboard = () => {
               style={emergencyButtonStyle}
               onClick={activateWildfireProtocol}
             >
-              {wildfireProtocol ? '✅ Wildfire Protocol Active' : '🔥 Activate Wildfire Protocol'}
+              {wildfireProtocol ? 'Wildfire Protocol Active' : 'Activate Wildfire Protocol'}
             </button>
             <button
               className="btn"
               style={actionButtonStyle}
               onClick={prioritizeEarthObservation}
             >
-              📡 Prioritize Earth Observation
+              Prioritize Earth Observation
             </button>
           </div>
         </div>
@@ -380,7 +399,9 @@ const Dashboard = () => {
 
       {/* ISRO Constellation Scenario */}
       <div className="card">
-        <h2>🛰️ ISRO Constellation Challenge <span style={{ color: '#ff0000', fontSize: '12px' }}>(M)</span></h2>
+
+        <h2>ISRO Constellation Challenge <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+
         <div style={starlinkScenarioStyle}>
           <div style={scenarioHeaderStyle}>
             <h3>Indian Regional Navigation Satellite System (NavIC)</h3>
@@ -464,10 +485,10 @@ const Dashboard = () => {
             </div>
             <div style={selectionMetricsStyle}>
               <h4>AI Selection Criteria:</h4>
-              <div>🎯 Mission Priority: Navigation {'>'} Earth Observation {'>'} Weather</div>
-              <div>⏱️ Pass Duration: {'>'}6 minutes for data download</div>
-              <div>📊 Coverage Area: Indian subcontinent priority</div>
-              <div>🔄 Ground Station Load: Bangalore, Sriharikota, Hassan</div>
+              <div>Mission Priority: Navigation {'>'} Earth Observation {'>'} Weather</div>
+              <div>Pass Duration: {'>'}6 minutes for data download</div>
+              <div>Coverage Area: Indian subcontinent priority</div>
+              <div>Ground Station Load: Bangalore, Sriharikota, Hassan</div>
             </div>
           </div>
         </div>
@@ -475,7 +496,7 @@ const Dashboard = () => {
 
       {/* Mission Control Actions */}
       <div className="card">
-        <h2>🎛️ Mission Control</h2>
+        <h2>Mission Control</h2>
         <div style={controlGridStyle}>
           <button
             className="btn"
@@ -489,42 +510,42 @@ const Dashboard = () => {
             style={actionButtonStyle}
             onClick={runSimulation}
           >
-            🎮 Run Simulation
+          Run Simulation
           </button>
           <button
             className="btn"
             style={{ ...actionButtonStyle, background: emergencyMode ? '#ff0000' : '#667eea' }}
             onClick={emergencyOverride}
           >
-            {emergencyMode ? '✅ Emergency Active' : '🚨 Emergency Override'}
+            {emergencyMode ? 'Emergency Active' : '🚨 Emergency Override'}
           </button>
           <button
             className="btn"
             style={actionButtonStyle}
             onClick={() => exportSchedule('json')}
           >
-            📄 Export JSON
+          Export JSON
           </button>
           <button
             className="btn"
             style={actionButtonStyle}
             onClick={() => exportSchedule('csv')}
           >
-            📊 Export CSV
+          Export CSV
           </button>
           <button
             className="btn"
             style={actionButtonStyle}
             onClick={importSchedule}
           >
-            📥 Import Schedule
+            Import Schedule
           </button>
           <button
             className="btn"
             style={actionButtonStyle}
             onClick={generateReport}
           >
-            📋 Generate Report
+            Generate Report
           </button>
           <button
             className="btn"
@@ -545,10 +566,12 @@ const Dashboard = () => {
 
       {/* Quick Status */}
       <div className="card">
-        <h2>⚡ Quick Status</h2>
+        <h2>Quick Status</h2>
         <div style={statusGridStyle}>
-          <div style={statusCardStyle}>
-            <h4>🛰️ Satellites <span style={{ color: '#00ff00', fontSize: '10px' }}>(R)</span></h4>
+
+          <div style={statusCardStyle} className="status-card">
+            <h4>Satellites <span style={{color: '#00ff00', fontSize: '10px'}}>(R)</span></h4>
+
             {satellites.length > 0 ? (
               satellites.slice(0, 4).map(sat => (
                 <div key={sat.name}>
@@ -566,8 +589,10 @@ const Dashboard = () => {
               </div>
             )}
           </div>
-          <div style={statusCardStyle}>
-            <h4>🌍 Ground Stations <span style={{ color: '#00ff00', fontSize: '10px' }}>(R)</span></h4>
+
+          <div style={statusCardStyle} className="status-card">
+            <h4>Ground Stations <span style={{color: '#00ff00', fontSize: '10px'}}>(R)</span></h4>
+
             {groundStations.length > 0 ? (
               groundStations.slice(0, 3).map(station => (
                 <div key={station.name}>
@@ -585,8 +610,10 @@ const Dashboard = () => {
               </div>
             )}
           </div>
-          <div style={statusCardStyle}>
-            <h4>📊 Performance <span style={{ color: '#00ff00', fontSize: '10px' }}>(R)</span></h4>
+
+          <div style={statusCardStyle} className="status-card">
+            <h4> Performance <span style={{color: '#00ff00', fontSize: '10px'}}>(R)</span></h4>
+
             <div>Latency: {performanceMetrics.latency}ms</div>
             <div>Success Rate: {performanceMetrics.successRate}%</div>
             <div>Efficiency: +{performanceMetrics.efficiency}%</div>

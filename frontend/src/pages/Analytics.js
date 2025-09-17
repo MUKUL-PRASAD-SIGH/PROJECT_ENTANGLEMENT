@@ -53,37 +53,37 @@ const Analytics = () => {
 
   // Demo Functions
   const loadSatellites = () => {
-    showNotification('success', '🛰️ LOADING LIVE SATELLITES', 
-      'Connecting to satellite tracking APIs... | ✅ ISS: Connected | ✅ Hubble: Connected | ✅ GPS-III: Connected | ✅ Starlink: 4 satellites online', 7000);
+    showNotification('success', ' LOADING LIVE SATELLITES', 
+      'Connecting to satellite tracking APIs... | ISS: Connected |  Hubble: Connected |  GPS-III: Connected |  Starlink: 4 satellites online', 7000);
   };
 
   const showClassicalScheduling = () => {
-    showNotification('warning', '📊 CLASSICAL ALGORITHM ANALYSIS', 
-      'Running traditional greedy scheduling... | ⚠️ Found 15 scheduling conflicts | ⚠️ 23% communication windows wasted | ⚠️ Sub-optimal resource allocation detected', 8000);
+    showNotification('warning', ' CLASSICAL ALGORITHM ANALYSIS', 
+      'Running traditional greedy scheduling... |  Found 15 scheduling conflicts |  23% communication windows wasted |  Sub-optimal resource allocation detected', 8000);
   };
 
   const showAIOptimization = () => {
-    showNotification('success', '🤖 AI OPTIMIZATION ACTIVATED', 
-      'Deep Q-Learning + Graph Neural Network engaged... | ✅ Conflicts resolved in 0.3 seconds | ✅ Optimal resource allocation achieved | ✅ Real-time adaptive scheduling active', 8000);
+    showNotification('success', ' AI OPTIMIZATION ACTIVATED', 
+      'Deep Q-Learning + Graph Neural Network engaged... |  Conflicts resolved in 0.3 seconds |  Optimal resource allocation achieved |  Real-time adaptive scheduling active', 8000);
   };
 
   const showMetricsDashboard = () => {
-    showNotification('success', '📊 PERFORMANCE METRICS', 
-      'AI vs Classical Comparison: | 📈 Throughput: +23.4% improvement | ⚡ Latency: -44ms reduction | 🎯 Success Rate: 98.7% vs 75.3% | 💰 Cost Efficiency: +31% savings', 9000);
+    showNotification('success', ' PERFORMANCE METRICS', 
+      'AI vs Classical Comparison: |  Throughput: +23.4% improvement |  Latency: -44ms reduction |  Success Rate: 98.7% vs 75.3% |  Cost Efficiency: +31% savings', 9000);
   };
 
   const showGNNVisualization = () => {
     showNotification('info', '✨ GRAPH NEURAL NETWORK VISUALIZATION', 
-      'Showing AI decision-making process... | 🧠 Attention weights on satellite nodes | ⚡ Critical path highlighting | 🔍 Real-time feature importance | 📊 Network topology analysis', 8000);
+      'Showing AI decision-making process... |  Attention weights on satellite nodes |  Critical path highlighting |  Real-time feature importance |  Network topology analysis', 8000);
   };
 
   return (
     <div>
-      <h1>📊 Analytics Dashboard</h1>
+      <h1> Analytics Dashboard</h1>
       
       {/* Control Panel */}
       <div className="card">
-        <h2>🎛️ Analysis Controls</h2>
+        <h2> Analysis Controls</h2>
         <div style={controlPanelStyle}>
           <div style={controlGroupStyle}>
             <label><strong>Algorithm:</strong></label>
@@ -117,10 +117,10 @@ const Analytics = () => {
 
       {/* AI vs Classical Comparison */}
       <div className="card">
-        <h2>🤖 AI vs Classical Performance <span style={{color: loading ? '#ffaa00' : '#00ff00', fontSize: '12px'}}>({loading ? 'LOADING...' : dataSource === 'LIVE_CALCULATION' ? 'LIVE' : 'REPRESENTATIVE'})</span></h2>
+        <h2> AI vs Classical Performance <span style={{color: loading ? '#ffaa00' : '#00ff00', fontSize: '12px'}}>({loading ? 'LOADING...' : dataSource === 'LIVE_CALCULATION' ? 'LIVE' : 'REPRESENTATIVE'})</span></h2>
         <div style={comparisonStyle}>
-          <div style={algorithmCardStyle}>
-            <h3 style={{ color: '#00ff00' }}>🤖 AI + GNN</h3>
+          <div style={algorithmCardStyle} className="algorithm-card">
+            <h3 style={{ color: '#00ff00' }}>AI + GNN</h3>
             <div style={metricRowStyle}>
               <span>Efficiency:</span>
               <span style={{ color: '#00ff00', fontWeight: 'bold' }}>{aiMetrics.efficiency.toFixed(1)}%</span>
@@ -138,8 +138,8 @@ const Analytics = () => {
               <span style={{ color: '#00ff00', fontWeight: 'bold' }}>{aiMetrics.success_rate.toFixed(1)}%</span>
             </div>
           </div>
-          <div style={algorithmCardStyle}>
-            <h3 style={{ color: '#ff6b6b' }}>📊 Classical</h3>
+          <div style={algorithmCardStyle} className="algorithm-card">
+            <h3 style={{ color: '#ff6b6b' }}>Classical</h3>
             <div style={metricRowStyle}>
               <span>Efficiency:</span>
               <span style={{ color: '#ff6b6b', fontWeight: 'bold' }}>{classicalMetrics.efficiency.toFixed(1)}%</span>
@@ -157,8 +157,8 @@ const Analytics = () => {
               <span style={{ color: '#ff6b6b', fontWeight: 'bold' }}>{classicalMetrics.success_rate.toFixed(1)}%</span>
             </div>
           </div>
-          <div style={improvementCardStyle}>
-            <h3 style={{ color: '#ffff00' }}>⚡ Improvement</h3>
+          <div style={improvementCardStyle} className="improvement-card">
+            <h3 style={{ color: '#ffff00' }}>Improvement</h3>
             <div style={metricRowStyle}>
               <span>Efficiency:</span>
               <span style={{ color: '#ffff00', fontWeight: 'bold' }}>+{improvements.efficiency_improvement.toFixed(1)}%</span>
@@ -181,7 +181,7 @@ const Analytics = () => {
 
       {/* Network Efficiency Metrics */}
       <div className="card">
-        <h2>🌐 Network Efficiency Analysis <span style={{color: '#ffaa00', fontSize: '12px'}}>(REPRESENTATIVE)</span></h2>
+        <h2> Network Efficiency Analysis <span style={{color: '#ffaa00', fontSize: '12px'}}>(REPRESENTATIVE)</span></h2>
         <div className="metrics-grid">
           <div className="metric-card">
             <div className="metric-value">98.7%</div>
@@ -212,7 +212,7 @@ const Analytics = () => {
 
       {/* GNN Attention Visualization */}
       <div className="card">
-        <h2>🤖 Network Visualization <span style={{color: '#ffaa00', fontSize: '12px'}}>(REPRESENTATIVE)</span></h2>
+        <h2> Network Visualization <span style={{color: '#ffaa00', fontSize: '12px'}}>(REPRESENTATIVE)</span></h2>
         <div style={gnnVisualizationStyle}>
           <div style={attentionMapStyle}>
             <h4>Network Attention Map</h4>
@@ -235,22 +235,22 @@ const Analytics = () => {
 
       {/* Predictive Analytics */}
       <div className="card">
-        <h2>🔮 Predictive Analytics <span style={{color: '#ffaa00', fontSize: '12px'}}>(REPRESENTATIVE)</span></h2>
+        <h2> Predictive Analytics <span style={{color: '#ffaa00', fontSize: '12px'}}>(REPRESENTATIVE)</span></h2>
         <div style={predictiveStyle}>
-          <div style={predictionCardStyle}>
-            <h4>📈 Performance Forecast</h4>
+          <div style={predictionCardStyle} className="prediction-card">
+            <h4> Performance Forecast</h4>
             <div>Next Hour: +2.3% efficiency expected</div>
             <div>Next 6 Hours: Optimal performance window</div>
             <div>Next 24 Hours: 15% traffic increase predicted</div>
           </div>
-          <div style={predictionCardStyle}>
-            <h4>⚠️ Risk Assessment</h4>
+          <div style={predictionCardStyle} className="prediction-card">
+            <h4> Risk Assessment</h4>
             <div>Weather Impact: Low (5%)</div>
             <div>Hardware Failure Risk: Very Low (0.2%)</div>
             <div>Network Congestion: Medium (35%)</div>
           </div>
-          <div style={predictionCardStyle}>
-            <h4>🎯 Optimization Recommendations</h4>
+          <div style={predictionCardStyle} className="prediction-card">
+            <h4> Optimization Recommendations</h4>
             <div>Increase ISS priority by 15%</div>
             <div>Reduce Starlink bandwidth allocation</div>
             <div>Schedule maintenance window at 03:00 UTC</div>
@@ -260,7 +260,7 @@ const Analytics = () => {
 
       {/* Training Progress */}
       <div className="card">
-        <h2>🤖 AI Training Analytics <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
+        <h2> AI Training Analytics <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={trainingAnalyticsStyle}>
           <div style={trainingMetricStyle}>
             <h4>🎯 Training Completion</h4>
@@ -291,7 +291,7 @@ const Analytics = () => {
 
       {/* Demo Flow for Judges */}
       <div className="card">
-        <h2>🎬 Demo Flow Control</h2>
+        <h2> Demo Flow Control</h2>
         <div style={demoFlowStyle}>
           <div style={demoStepStyle}>
             <h4>Step 1: Load Live Satellites</h4>
@@ -318,22 +318,22 @@ const Analytics = () => {
 
       {/* Key Metrics Tracking */}
       <div className="card">
-        <h2>📏 Key Performance Metrics</h2>
+        <h2> Key Performance Metrics</h2>
         <div style={metricsTrackingStyle}>
           <div style={metricCategoryStyle}>
-            <h4>📊 Throughput & Efficiency</h4>
+            <h4>Throughput & Efficiency</h4>
             <div>Throughput: 847 Gb/day (+23.4% vs classical)</div>
             <div>Antenna Utilization: 87.3% (target: {'>'}85%)</div>
             <div>Network Efficiency: 98.7% (baseline: 75.3%)</div>
           </div>
           <div style={metricCategoryStyle}>
-            <h4>⏱️ Timeliness & Latency</h4>
+            <h4>Timeliness & Latency</h4>
             <div>Average Latency: 23ms (target: &lt;50ms)</div>
             <div>P95 Latency: 67ms (classical: 156ms)</div>
             <div>Urgent Delivery Rate: 99.2% (target: &gt;95%)</div>
           </div>
           <div style={metricCategoryStyle}>
-            <h4>🔄 Fairness & Robustness</h4>
+            <h4>Fairness & Robustness</h4>
             <div>Starvation Events: 0 (last 24h)</div>
             <div>Decision Latency: 0.3s (real-time requirement)</div>
             <div>Weather Robustness: 94.7% success rate</div>
@@ -358,11 +358,16 @@ const controlGroupStyle = {
 };
 
 const selectStyle = {
-  background: 'rgba(255, 255, 255, 0.1)',
-  border: '1px solid rgba(255, 255, 255, 0.3)',
+  background: 'linear-gradient(45deg, #1a1327, #252147, #2d2a5f)',
+  border: '1px solid rgba(255, 215, 0, 0.1)',
   color: 'white',
-  padding: '8px',
-  borderRadius: '5px'
+  padding: '12px',
+  borderRadius: '8px',
+  fontFamily: "'Orbitron', 'Exo 2', monospace",
+  fontSize: '14px',
+  fontWeight: '600',
+  letterSpacing: '0.08em',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const comparisonStyle = {

@@ -77,9 +77,9 @@ const StarField = () => {
       });
     };
     setInterval(() => {
-      const count = 3 + Math.floor(Math.random() * 3); // 3–5 at a time
+      const count = 1 + Math.floor(Math.random() * 2); // 1–2 at a time
       for (let i = 0; i < count; i++) spawnShootingStar();
-    }, 1000); // every second
+    }, 4000); // every 4 seconds
 
     // === Comet ===
     const comet = {

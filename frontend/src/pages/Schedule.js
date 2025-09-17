@@ -20,10 +20,10 @@ const Schedule = () => {
         start_time: new Date().toISOString()
       });
       
-      showNotification('success', '🚀 OPTIMIZATION COMPLETE', 
+      showNotification('success', 'OPTIMIZATION COMPLETE', 
         `Mode: ${schedulingMode} | Time Range: ${timeRange} | Level: ${optimizationLevel} | Satellites processed: ${response.summary?.total_satellites || 0} | Windows found: ${response.summary?.total_windows || 0} | Schedule updated with optimal satellite passes`, 8000);
     } catch (error) {
-      showNotification('info', '🚀 OPTIMIZATION COMPLETE (Offline)', 
+      showNotification('info', 'OPTIMIZATION COMPLETE (Offline)', 
         `Mode: ${schedulingMode} | Time Range: ${timeRange} | Level: ${optimizationLevel} | Using cached data for optimization`, 7000);
     } finally {
       setTimeout(() => setOptimizing(false), 2000);
@@ -40,10 +40,10 @@ const Schedule = () => {
         })
       ]);
       
-      showNotification('success', '🔄 SCHEDULE REFRESHED', 
+      showNotification('success', 'SCHEDULE REFRESHED', 
         `Satellites tracked: ${satellites.length || (satellites.satellites && satellites.satellites.length) || 0} | Communication windows: ${windows.length || (windows.windows && windows.windows.length) || 0} | Latest orbital data synchronized`, 6000);
     } catch (error) {
-      showNotification('info', '🔄 REFRESHING SCHEDULE', 
+      showNotification('info', 'REFRESHING SCHEDULE', 
         'Fetching latest satellite tracking data and ground station availability... (Using offline mode)', 5000);
     }
   };
@@ -57,7 +57,7 @@ const Schedule = () => {
       conflicts: schedules.filter(s => s.status === 'conflict').length,
       timestamp: new Date().toISOString()
     };
-    showNotification('success', '📊 SCHEDULE EXPORTED', 
+    showNotification('success', 'SCHEDULE EXPORTED', 
       `Mode: ${schedulingMode} | Time Range: ${timeRange} | Optimization: ${optimizationLevel} | Schedules: ${schedules.length} | Conflicts: ${schedules.filter(s => s.status === 'conflict').length}`, 6000);
   };
 
@@ -65,83 +65,83 @@ const Schedule = () => {
     setEmergencyMode(!emergencyMode);
     showNotification(
       !emergencyMode ? 'warning' : 'success', 
-      !emergencyMode ? '🚨 EMERGENCY MODE ACTIVATED' : '✅ Emergency mode deactivated',
+      !emergencyMode ? 'EMERGENCY MODE ACTIVATED' : 'Emergency mode deactivated',
       !emergencyMode ? 'All non-critical communications suspended | Priority channels only' : 'Normal operations resumed',
       !emergencyMode ? 8000 : 4000
     );
   };
 
   const resolveConflict = (conflictId) => {
-    showNotification('info', `🔧 RESOLVING CONFLICT ${conflictId}`, 
+    showNotification('info', `RESOLVING CONFLICT ${conflictId}`, 
       'AI analyzing optimal resolution strategy... | Conflict resolved using priority-based scheduling', 6000);
     setSelectedConflict(null);
   };
 
   const assignPriority = (scheduleId, priority) => {
-    showNotification('success', '📋 PRIORITY UPDATED', 
+    showNotification('success', 'PRIORITY UPDATED', 
       `Schedule ${scheduleId} set to ${priority} priority | Auto-recomputing optimal schedule...`, 5000);
   };
 
   // Export Functions
   const exportToCSV = () => {
-    showNotification('info', '📊 EXPORTING TO CSV', 
+    showNotification('info', 'EXPORTING TO CSV', 
       'Generating comma-separated values file... | Download will start shortly', 5000);
   };
 
   const exportToJSON = () => {
-    showNotification('info', '📋 EXPORTING TO JSON', 
+    showNotification('info', 'EXPORTING TO JSON', 
       'Generating JSON formatted schedule... Download will start shortly', 5000);
   };
 
   const generateReport = () => {
-    showNotification('info', '📄 GENERATING REPORT', 
+    showNotification('info', 'GENERATING REPORT', 
       'Creating comprehensive schedule analysis... PDF report will be available in 30 seconds', 6000);
   };
 
   const emailSchedule = () => {
-    showNotification('success', '📧 EMAILING SCHEDULE', 
+    showNotification('success', 'EMAILING SCHEDULE', 
       'Sending schedule to mission-control@example.com | Email sent successfully', 5000);
   };
 
   // Import Functions
   const importSchedule = () => {
-    showNotification('info', '📁 IMPORT SCHEDULE', 
+    showNotification('info', 'IMPORT SCHEDULE', 
       'Select schedule file to upload... | Supported formats: CSV, JSON, XML', 5000);
   };
 
   const loadTemplate = () => {
-    showNotification('info', '📋 LOADING TEMPLATE', 
+    showNotification('info', 'LOADING TEMPLATE', 
       'Available templates: ISRO Standard, Emergency Protocol, Scientific Mission | Which template would you like to load?', 7000);
   };
 
   const saveAsTemplate = () => {
-    showNotification('success', '💾 SAVING AS TEMPLATE', 
+    showNotification('success', 'SAVING AS TEMPLATE', 
       `Current schedule configuration saved as reusable template | Template name: Custom_${new Date().toISOString().split('T')[0]}`, 6000);
   };
 
   const restoreBackup = () => {
-    showNotification('info', '🔄 RESTORING BACKUP', 
+    showNotification('info', 'RESTORING BACKUP', 
       'Available backups: Today 14:30, Yesterday 09:15, Last Week | Select backup to restore', 7000);
   };
 
   // Advanced Functions
   const bulkOperations = () => {
-    showNotification('info', '🎛️ BULK OPERATIONS', 
+    showNotification('info', 'BULK OPERATIONS', 
       'Available operations: Reschedule All, Priority Update, Mass Delete, Time Shift | Select operation type', 7000);
   };
 
   const performanceAnalysis = () => {
-    showNotification('success', '📊 PERFORMANCE ANALYSIS', 
+    showNotification('success', 'PERFORMANCE ANALYSIS', 
       'Analyzing schedule efficiency... | Success Rate: 98.7% | Resource Utilization: 87% | Conflict Resolution: 95% | Optimization Score: A+', 8000);
   };
 
   const scheduleValidation = () => {
-    showNotification('success', '🔍 SCHEDULE VALIDATION', 
-      'Validating schedule integrity... | ✅ No conflicts detected | ✅ All satellites reachable | ✅ Ground stations available | ✅ Weather conditions acceptable', 8000);
+    showNotification('success', 'SCHEDULE VALIDATION', 
+      'Validating schedule integrity... |  No conflicts detected | All satellites reachable | Ground stations available | Weather conditions acceptable', 8000);
   };
 
   const optimizationSettings = () => {
-    showNotification('info', '⚡ OPTIMIZATION SETTINGS', 
+    showNotification('info', ' OPTIMIZATION SETTINGS', 
       'Current settings: Algorithm: Deep Q-Learning | Horizon: 24 hours | Constraints: Hard priority | Objective: Max throughput', 7000);
   };
 
@@ -205,15 +205,15 @@ const Schedule = () => {
       
       {/* Scheduling Control Panel */}
       <div className="card">
-        <h2>🎛️ Schedule Control Center <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
+        <h2>Schedule Control Center <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={controlPanelStyle}>
           <div style={controlGroupStyle}>
             <label><strong>Scheduling Mode:</strong></label>
             <select value={schedulingMode} onChange={(e) => setSchedulingMode(e.target.value)} style={selectStyle}>
-              <option value="manual">🖐️ Manual Scheduling</option>
-              <option value="ai">🤖 AI Optimization</option>
-              <option value="hybrid">⚡ Hybrid Mode</option>
-              <option value="emergency">🚨 Emergency Override</option>
+              <option value="manual"> Manual Scheduling</option>
+              <option value="ai">AI Optimization</option>
+              <option value="hybrid">Hybrid Mode</option>
+              <option value="emergency">Emergency Override</option>
             </select>
           </div>
           <div style={controlGroupStyle}>
@@ -228,10 +228,10 @@ const Schedule = () => {
           <div style={controlGroupStyle}>
             <label><strong>Optimization Level:</strong></label>
             <select value={optimizationLevel} onChange={(e) => setOptimizationLevel(e.target.value)} style={selectStyle}>
-              <option value="speed">⚡ Speed Priority</option>
-              <option value="balanced">⚖️ Balanced</option>
-              <option value="quality">💎 Quality Priority</option>
-              <option value="efficiency">📈 Max Efficiency</option>
+              <option value="speed">Speed Priority</option>
+              <option value="balanced">Balanced</option>
+              <option value="quality">Quality Priority</option>
+              <option value="efficiency">Max Efficiency</option>
             </select>
           </div>
         </div>
@@ -242,21 +242,21 @@ const Schedule = () => {
             onClick={runOptimization}
             disabled={optimizing}
           >
-            {optimizing ? '⏳ Optimizing...' : '🚀 Run Optimization'}
+            {optimizing ? 'Optimizing...' : 'Run Optimization'}
           </button>
           <button 
             className="btn" 
             style={actionButtonStyle}
             onClick={refreshSchedule}
           >
-            🔄 Refresh Schedule
+            Refresh Schedule
           </button>
           <button 
             className="btn" 
             style={actionButtonStyle}
             onClick={exportSchedule}
           >
-            📊 Export Schedule
+            Export Schedule
           </button>
           <button 
             className="btn" 
@@ -270,7 +270,7 @@ const Schedule = () => {
 
       {/* Interactive Timeline */}
       <div className="card">
-        <h2>⏰ Interactive Schedule Timeline <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
+        <h2>Interactive Schedule Timeline <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={timelineContainerStyle}>
           <div style={timelineHeaderStyle}>
             <div style={timeAxisStyle}>
@@ -285,11 +285,11 @@ const Schedule = () => {
                 key={schedule.id} 
                 style={{
                   ...timelineItemStyle,
-                  backgroundColor: schedule.status === 'conflict' ? 'rgba(255, 0, 0, 0.3)' : 
-                                   schedule.status === 'scheduled' ? 'rgba(0, 255, 0, 0.3)' : 
-                                   'rgba(255, 255, 0, 0.3)',
-                  border: `2px solid ${schedule.status === 'conflict' ? '#ff0000' : 
-                                      schedule.status === 'scheduled' ? '#00ff00' : '#ffff00'}`
+                  backgroundColor: schedule.status === 'conflict' ? 'rgba(255, 0, 0, 0.1)' : 
+                                   schedule.status === 'scheduled' ? 'rgba(0, 255, 0, 0.1)' : 
+                                   'rgba(255, 255, 0, 0.1)',
+                  border: `1px solid ${schedule.status === 'conflict' ? 'rgba(255, 0, 0, 0.3)' : 
+                                      schedule.status === 'scheduled' ? 'rgba(0, 255, 0, 0.3)' : 'rgba(255, 255, 0, 0.3)'}`
                 }}
                 onClick={() => setSelectedConflict(schedule.id)}
               >
@@ -312,10 +312,10 @@ const Schedule = () => {
 
       {/* Conflict Resolution Interface */}
       <div className="card">
-        <h2>⚠️ Conflict Resolution Center <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+        <h2>Conflict Resolution Center <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
         <div style={conflictGridStyle}>
           <div style={conflictListStyle}>
-            <h4>🚨 Active Conflicts</h4>
+            <h4>Active Conflicts</h4>
             {schedules.filter(s => s.status === 'conflict').map(conflict => (
               <div key={conflict.id} style={conflictItemStyle}>
                 <div style={conflictHeaderStyle}>
@@ -370,35 +370,35 @@ const Schedule = () => {
 
       {/* Schedule Statistics */}
       <div className="card">
-        <h2>📊 Schedule Performance <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+        <h2>Schedule Performance <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
         <div style={statsGridStyle}>
-          <div style={statCardStyle}>
-            <h4>📅 Total Windows</h4>
+          <div style={statCardStyle} className="stat-card">
+            <h4>Total Windows</h4>
             <div style={statNumberStyle}>12</div>
             <div style={statSubtextStyle}>Next 24 Hours</div>
           </div>
-          <div style={statCardStyle}>
-            <h4>⏱️ Total Duration</h4>
+          <div style={statCardStyle} className="stat-card">
+            <h4>Total Duration</h4>
             <div style={statNumberStyle}>67 min</div>
             <div style={statSubtextStyle}>Communication Time</div>
           </div>
-          <div style={statCardStyle}>
-            <h4>⚠️ Conflicts</h4>
+          <div style={statCardStyle} className="stat-card">
+            <h4>Conflicts</h4>
             <div style={statNumberStyle}>2</div>
             <div style={statSubtextStyle}>Need Resolution</div>
           </div>
-          <div style={statCardStyle}>
-            <h4>📈 Efficiency</h4>
+          <div style={statCardStyle} className="stat-card">
+            <h4>Efficiency</h4>
             <div style={statNumberStyle}>87.3%</div>
             <div style={statSubtextStyle}>Network Utilization</div>
           </div>
-          <div style={statCardStyle}>
-            <h4>🎯 Success Rate</h4>
+          <div style={statCardStyle} className="stat-card">
+            <h4>Success Rate</h4>
             <div style={statNumberStyle}>94.7%</div>
             <div style={statSubtextStyle}>Completed Passes</div>
           </div>
-          <div style={statCardStyle}>
-            <h4>🤖 AI Improvement</h4>
+          <div style={statCardStyle} className="stat-card">
+            <h4>AI Improvement</h4>
             <div style={statNumberStyle}>+23.4%</div>
             <div style={statSubtextStyle}>vs Classical</div>
           </div>
@@ -407,78 +407,78 @@ const Schedule = () => {
 
       {/* Curriculum Learning & Training Scenarios */}
       <div className="card">
-        <h2>🎯 Curriculum Learning Pipeline <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+        <h2>Curriculum Learning Pipeline <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
         <div style={curriculumStyle}>
           <div style={curriculumStageStyle}>
             <h4>Stage 1: Simple Scenarios (Weeks 1-2)</h4>
-            <div>🛰️ 50 satellites, 10 ground stations</div>
-            <div>🎯 Target: Beat greedy baseline by 5%</div>
-            <div>✅ Status: Completed - 8.3% improvement</div>
+            <div>50 satellites, 10 ground stations</div>
+            <div>Target: Beat greedy baseline by 5%</div>
+            <div>Status: Completed - 8.3% improvement</div>
           </div>
           <div style={curriculumStageStyle}>
             <h4>Stage 2: Scaling Up (Weeks 3-4)</h4>
-            <div>🛰️ 1000 satellites, 50 ground stations</div>
-            <div>🌤️ Weather randomization enabled</div>
-            <div>🔄 Status: In Progress - 67% complete</div>
+            <div>1000 satellites, 50 ground stations</div>
+            <div>Weather randomization enabled</div>
+            <div>Status: In Progress - 67% complete</div>
           </div>
           <div style={curriculumStageStyle}>
             <h4>Stage 3: Real-World Complexity (Weeks 5-6)</h4>
-            <div>🛰️ 5000+ satellites (Starlink scale)</div>
-            <div>🔗 Inter-satellite links (ISLs)</div>
-            <div>🚨 Emergency scenarios & failures</div>
-            <div>⏳ Status: Planned</div>
+            <div>5000+ satellites (Starlink scale)</div>
+            <div>Inter-satellite links (ISLs)</div>
+            <div>Emergency scenarios & failures</div>
+            <div>Status: Planned</div>
           </div>
         </div>
       </div>
 
       {/* Safety Constraints & Hard Limits */}
       <div className="card">
-        <h2>🛡️ Safety Constraints & Hard Limits <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+        <h2>Safety Constraints & Hard Limits <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
         <div style={safetyConstraintsStyle}>
           <div style={safetyLayerStyle}>
-            <h4>🚨 Hard Constraint Layer</h4>
-            <div>⚡ Power Budget: Never exceed 95% capacity</div>
-            <div>🌡️ Thermal Limits: -40°C to +85°C strict</div>
-            <div>📡 Antenna Limits: Max 4 simultaneous connections</div>
-            <div>🔄 Collision Avoidance: 5km minimum separation</div>
+            <h4>Hard Constraint Layer</h4>
+            <div>Power Budget: Never exceed 95% capacity</div>
+            <div>Thermal Limits: -40°C to +85°C strict</div>
+            <div>Antenna Limits: Max 4 simultaneous connections</div>
+            <div>Collision Avoidance: 5km minimum separation</div>
           </div>
           <div style={safetyLayerStyle}>
-            <h4>🔍 Explainability Outputs</h4>
-            <div>🤖 AI Decision Reasoning: "ISS prioritized due to crew safety"</div>
-            <div>📊 Confidence Score: 94.2% (high confidence)</div>
-            <div>🎯 Alternative Options: 3 backup schedules generated</div>
-            <div>⚠️ Risk Assessment: Low risk (0.3% failure probability)</div>
+            <h4>Explainability Outputs</h4>
+            <div>AI Decision Reasoning: "ISS prioritized due to crew safety"</div>
+            <div>Confidence Score: 94.2% (high confidence)</div>
+            <div>Alternative Options: 3 backup schedules generated</div>
+            <div>Risk Assessment: Low risk (0.3% failure probability)</div>
           </div>
           <div style={safetyLayerStyle}>
-            <h4>🚨 Emergency Handling</h4>
-            <div>🔥 Wildfire Protocol: &lt;30 second activation</div>
-            <div>🌊 Natural Disaster: Automatic priority override</div>
-            <div>🚀 Crew Emergency: ISS gets 100% bandwidth</div>
-            <div>📵 Communication Failure: Backup routing activated</div>
+            <h4>Emergency Handling</h4>
+            <div> Wildfire Protocol: &lt;30 second activation</div>
+            <div> Natural Disaster: Automatic priority override</div>
+            <div> Crew Emergency: ISS gets 100% bandwidth</div>
+            <div>Communication Failure: Backup routing activated</div>
           </div>
         </div>
       </div>
 
       {/* Shadow Mode & Offline Validation */}
       <div className="card">
-        <h2>🌑 Shadow Mode & Validation <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
+        <h2>Shadow Mode & Validation <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
         <div style={shadowModeStyle}>
           <div style={validationSectionStyle}>
-            <h4>🔍 Shadow Mode Testing</h4>
+            <h4>Shadow Mode Testing</h4>
             <div>Running parallel to existing operations</div>
             <div>No real control - comparison only</div>
             <div>Historical data: 30 days of ops logs</div>
             <div>AI vs Human decisions: 23.4% efficiency gain</div>
           </div>
           <div style={validationSectionStyle}>
-            <h4>📊 Offline Validation Results</h4>
+            <h4> Offline Validation Results</h4>
             <div>Test Dataset: 10,000 historical scenarios</div>
             <div>Success Rate: 99.7% (vs 87.4% baseline)</div>
             <div>Latency Improvement: -44ms average</div>
             <div>Throughput Gain: +205 Mbps average</div>
           </div>
           <div style={validationSectionStyle}>
-            <h4>🎯 Limited Live Trials</h4>
+            <h4> Limited Live Trials</h4>
             <div>Partner: ISRO (non-critical payloads)</div>
             <div>Scope: 10% of total satellite operations</div>
             <div>Operator Oversight: 24/7 human monitoring</div>
@@ -492,21 +492,21 @@ const Schedule = () => {
         <h2>🔄 Continuous Learning & Model Updates <span style={{color: '#ff0000', fontSize: '12px'}}>(M)</span></h2>
         <div style={continuousLearningStyle}>
           <div style={learningComponentStyle}>
-            <h4>📊 Online Adaptation</h4>
+            <h4>Online Adaptation</h4>
             <div>Model Updates: Every 6 hours</div>
             <div>Learning Rate: Adaptive (0.001 → 0.0001)</div>
             <div>Performance Drift Detection: Active</div>
             <div>A/B Testing: 90/10 split (stable/experimental)</div>
           </div>
           <div style={learningComponentStyle}>
-            <h4>📊 Telemetry Dashboard</h4>
+            <h4>Telemetry Dashboard</h4>
             <div>Real-time Metrics: 50+ KPIs tracked</div>
             <div>Alert System: Slack/email notifications</div>
             <div>Performance Regression: Auto-rollback enabled</div>
             <div>Data Pipeline: 99.9% uptime SLA</div>
           </div>
           <div style={learningComponentStyle}>
-            <h4>🔍 Model Versioning</h4>
+            <h4>Model Versioning</h4>
             <div>Current Version: v2.3.1 (stable)</div>
             <div>Experimental: v2.4.0-beta (testing)</div>
             <div>Rollback Capability: Last 10 versions</div>
@@ -534,7 +534,7 @@ const Schedule = () => {
             <button className="btn" style={importButtonStyle} onClick={restoreBackup}>🔄 Restore Backup</button>
           </div>
           <div style={managementSectionStyle}>
-            <h4>⚙️ Advanced Options</h4>
+            <h4>Advanced Options</h4>
             <button className="btn" style={advancedButtonStyle} onClick={bulkOperations}>🎛️ Bulk Operations</button>
             <button className="btn" style={advancedButtonStyle} onClick={performanceAnalysis}>📊 Performance Analysis</button>
             <button className="btn" style={advancedButtonStyle} onClick={scheduleValidation}>🔍 Schedule Validation</button>
@@ -560,11 +560,16 @@ const controlGroupStyle = {
 };
 
 const selectStyle = {
-  background: 'rgba(255, 255, 255, 0.1)',
-  border: '1px solid rgba(255, 255, 255, 0.3)',
+  background: 'linear-gradient(45deg, #1a1327, #252147, #2d2a5f)',
+  border: '1px solid rgba(255, 215, 0, 0.1)',
   color: 'white',
-  padding: '8px',
-  borderRadius: '5px'
+  padding: '12px',
+  borderRadius: '8px',
+  fontFamily: "'Orbitron', 'Exo 2', monospace",
+  fontSize: '14px',
+  fontWeight: '600',
+  letterSpacing: '0.08em',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const actionButtonsStyle = {
@@ -575,25 +580,32 @@ const actionButtonsStyle = {
 };
 
 const primaryButtonStyle = {
-  background: 'linear-gradient(45deg, #00ff00, #00cc00)',
-  fontWeight: 'bold'
+  background: 'linear-gradient(45deg, #1a1327, #252147, #2d2a5f)',
+  fontWeight: 'bold',
+  border: '1px solid rgba(255, 215, 0, 0.1)',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const actionButtonStyle = {
-  background: 'linear-gradient(45deg, #00bcd4, #0097a7)',
-  fontWeight: 'bold'
+  background: 'linear-gradient(45deg, #1a1327, #252147, #2d2a5f)',
+  fontWeight: 'bold',
+  border: '1px solid rgba(255, 215, 0, 0.1)',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const emergencyButtonStyle = {
-  background: 'linear-gradient(45deg, #ff0000, #cc0000)',
-  fontWeight: 'bold'
+  background: 'linear-gradient(45deg, #271a1a, #471621, #5f2a2d)',
+  fontWeight: 'bold',
+  border: '1px solid rgba(255, 69, 0, 0.2)',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const timelineContainerStyle = {
-  background: 'rgba(255, 255, 255, 0.05)',
+  background: 'rgba(255, 255, 255, 0.02)',
   borderRadius: '10px',
   padding: '20px',
-  marginTop: '15px'
+  marginTop: '15px',
+  border: '1px solid rgba(255, 255, 255, 0.05)'
 };
 
 const timelineHeaderStyle = {
@@ -699,9 +711,11 @@ const conflictActionsStyle = {
 };
 
 const resolveButtonStyle = {
-  background: 'linear-gradient(45deg, #00ff00, #00cc00)',
+  background: 'linear-gradient(45deg, #1a1327, #252147, #2d2a5f)',
   padding: '6px 12px',
-  fontSize: '12px'
+  fontSize: '12px',
+  border: '1px solid rgba(255, 215, 0, 0.1)',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const smallButtonStyle = {
@@ -766,21 +780,27 @@ const managementSectionStyle = {
 };
 
 const exportButtonStyle = {
-  background: 'linear-gradient(45deg, #4caf50, #388e3c)',
+  background: 'linear-gradient(45deg, #1a1327, #252147, #2d2a5f)',
   padding: '8px 12px',
-  fontSize: '12px'
+  fontSize: '12px',
+  border: '1px solid rgba(255, 215, 0, 0.1)',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const importButtonStyle = {
-  background: 'linear-gradient(45deg, #2196f3, #1976d2)',
+  background: 'linear-gradient(45deg, #1a1327, #252147, #2d2a5f)',
   padding: '8px 12px',
-  fontSize: '12px'
+  fontSize: '12px',
+  border: '1px solid rgba(255, 215, 0, 0.1)',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const advancedButtonStyle = {
-  background: 'linear-gradient(45deg, #ff9800, #f57c00)',
+  background: 'linear-gradient(45deg, #271a1a, #471621, #5f2a2d)',
   padding: '8px 12px',
-  fontSize: '12px'
+  fontSize: '12px',
+  border: '1px solid rgba(255, 69, 0, 0.2)',
+  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
 };
 
 const curriculumStyle = {

@@ -25,7 +25,7 @@ const AIScheduler = () => {
     setIsOptimizing(true);
     
     try {
-      showNotification('info', '🤖 AI OPTIMIZATION STARTING', 
+      showNotification('info', 'AI OPTIMIZATION STARTING', 
         'Initializing PPO agent... | Loading 50,000 episode training data | Analyzing satellite constellation network', 5000);
 
       const response = await apiService.optimizeScheduleWithAI({
@@ -46,14 +46,14 @@ const AIScheduler = () => {
       
       setOptimizationHistory(prev => [historyEntry, ...prev.slice(0, 4)]);
 
-      showNotification('success', '🚀 AI OPTIMIZATION COMPLETE', 
-        `✅ Scheduled ${response.optimization_summary.scheduled_windows}/${response.optimization_summary.total_windows} windows | ` +
-        `✅ AI Confidence: ${(response.ai_schedule.ai_confidence * 100).toFixed(1)}% | ` +
-        `✅ Performance Gain: +${response.ai_schedule.performance_gain}%`, 8000);
+      showNotification('success', 'AI OPTIMIZATION COMPLETE', 
+        `Scheduled ${response.optimization_summary.scheduled_windows}/${response.optimization_summary.total_windows} windows | ` +
+        `AI Confidence: ${(response.ai_schedule.ai_confidence * 100).toFixed(1)}% | ` +
+        `Performance Gain: +${response.ai_schedule.performance_gain}%`, 8000);
 
     } catch (error) {
       console.error('Error running AI optimization:', error);
-      showNotification('error', '❌ AI OPTIMIZATION FAILED', 
+      showNotification('error', 'AI OPTIMIZATION FAILED', 
         'Error connecting to AI model. Check backend status.', 5000);
     } finally {
       setIsOptimizing(false);
@@ -61,21 +61,21 @@ const AIScheduler = () => {
   };
 
   const compareWithClassical = () => {
-    showNotification('info', '📊 CLASSICAL VS AI COMPARISON', 
+    showNotification('info', 'CLASSICAL VS AI COMPARISON', 
       'Classical Algorithm: 75.3% efficiency, 67ms latency | ' +
       'AI Algorithm: 98.7% efficiency, 23ms latency | ' +
-      '🏆 AI WINS: +23.4% improvement, -44ms faster', 10000);
+      'AI WINS: +23.4% improvement, -44ms faster', 10000);
   };
 
   return (
     <div className="ai-scheduler">
       <div className="card">
-        <h2>🤖 AI Satellite Scheduler</h2>
+        <h2>AI Satellite Scheduler</h2>
         
         {/* Model Status */}
         <div style={modelStatusStyle}>
           <div style={statusIndicatorStyle(modelInfo?.model_loaded)}>
-            {modelInfo?.model_loaded ? '🟢 AI MODEL LOADED' : '🟡 MOCK MODE'}
+            {modelInfo?.model_loaded ? 'AI MODEL LOADED' : 'MOCK MODE'}
           </div>
           <div style={modelDetailsStyle}>
             <div>Model: {modelInfo?.model_type || 'PPO'}</div>
@@ -93,7 +93,7 @@ const AIScheduler = () => {
             onClick={runAIOptimization}
             disabled={isOptimizing}
           >
-            {isOptimizing ? '🔄 OPTIMIZING...' : '🚀 RUN AI OPTIMIZATION'}
+            {isOptimizing ? 'OPTIMIZING...' : 'RUN AI OPTIMIZATION'}
           </button>
           
           <button 
@@ -101,14 +101,14 @@ const AIScheduler = () => {
             style={compareButtonStyle}
             onClick={compareWithClassical}
           >
-            📊 COMPARE WITH CLASSICAL
+            COMPARE WITH CLASSICAL
           </button>
         </div>
 
         {/* Current Schedule */}
         {schedule && (
           <div style={scheduleContainerStyle}>
-            <h3>📋 Optimized Schedule</h3>
+            <h3>Optimized Schedule</h3>
             <div style={scheduleMetricsStyle}>
               <div>AI Confidence: <span style={{color: '#00ff00'}}>{(schedule.ai_confidence * 100).toFixed(1)}%</span></div>
               <div>Method: <span style={{color: '#00ffff'}}>{schedule.optimization_method}</span></div>
@@ -119,13 +119,13 @@ const AIScheduler = () => {
               {schedule.schedule?.slice(0, 5).map((item, index) => (
                 <div key={index} style={scheduleItemStyle(item.scheduled)}>
                   <div style={satelliteNameStyle}>
-                    🛰️ {item.satellite} → 📡 {item.station}
+                    {item.satellite} → {item.station}
                   </div>
                   <div style={scheduleDetailsStyle}>
                     <span>Duration: {item.duration_minutes.toFixed(1)}min</span>
                     <span>AI Priority: {(item.ai_priority_score * 100).toFixed(0)}%</span>
                     <span style={{color: item.scheduled ? '#00ff00' : '#ff6b6b'}}>
-                      {item.scheduled ? '✅ SCHEDULED' : '❌ SKIPPED'}
+                      {item.scheduled ? 'SCHEDULED' : 'SKIPPED'}
                     </span>
                   </div>
                 </div>
@@ -137,7 +137,7 @@ const AIScheduler = () => {
         {/* Optimization History */}
         {optimizationHistory.length > 0 && (
           <div style={historyContainerStyle}>
-            <h3>📈 Optimization History</h3>
+            <h3>Optimization History</h3>
             {optimizationHistory.map((entry, index) => (
               <div key={index} style={historyItemStyle}>
                 <div style={historyTimeStyle}>
