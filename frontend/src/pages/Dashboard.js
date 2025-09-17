@@ -640,6 +640,32 @@ const statusItemStyle = {
   fontSize: '16px'
 };
 
+const trainingStyle = {
+  marginTop: '15px'
+};
+
+const progressBarContainer = {
+  background: 'rgba(255, 255, 255, 0.1)',
+  borderRadius: '10px',
+  padding: '10px',
+  marginBottom: '15px'
+};
+
+const progressBarStyle = {
+  background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+  padding: '10px',
+  borderRadius: '5px',
+  color: 'white',
+  fontWeight: 'bold'
+};
+
+const trainingMetricsStyle = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  gap: '10px',
+  fontSize: '14px'
+};
+
 const metricsStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
