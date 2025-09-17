@@ -42,7 +42,7 @@ Watch as I switch between view modes - 3D globe, 2D map, and Columbus view. The 
 
 Now let me show you our dashboard. Here's our system metrics - we're tracking 5 satellites across 3 ground stations. Zero communication windows in the next 6 hours because we're in a quiet period, but watch this change. Our live satellite tracking shows ISS at 413km altitude, ISRO Cartosat-3 at 532km, and three other satellites with precise coordinates updating in real-time.
 
-The communication windows panel shows past, live, and upcoming opportunities. Our performance metrics display the key achievement - 23.4% AI efficiency gain over classical algorithms with 734 Mbps current throughput. The system health monitor confirms all components are operational - backend API connected in 193ms, database at 99.9% uptime, AI training ready with GPU available, and all 3 ground stations online.
+The communication windows panel shows past, live, and upcoming opportunities. Our performance metrics display the key achievement - 23.4% AI efficiency gain over classical algorithms with 734 Mbps current throughput.
 
 This backend runs on production-ready microservices with NASA JPL data for 1-kilometer accuracy. We process 360 position calculations per satellite per hour, automatically fetching live data from Celestrak every 6 hours. The frontend delivers sub-second response times with 99.9% WebSocket stability, supporting 50+ concurrent users across all devices.
 
@@ -56,7 +56,7 @@ Switching to Analytics - this is where our AI revolution becomes clear. Our Grap
 
 Here's the breakthrough: Classical algorithms achieve 75.3% efficiency. Our AI achieves 98.7% efficiency - that's 23.4% improvement with 205 Mbps higher throughput and 44ms lower latency. But the real magic is how it learns.
 
-I'm opening our training monitor. We completed 100,000 episodes using Proximal Policy Optimization with curriculum learning. The AI started with simple scenarios and evolved to handle mega-constellations. Final reward: +847.3, proving superhuman performance. Our AI makes decisions in 0.3 seconds versus 15 minutes for humans.
+Our AI makes decisions in 0.3 seconds versus 15 minutes for humans.
 
 Watch this ISRO constellation challenge - 7 NavIC satellites plus 5 Earth observation satellites competing for 3 ground stations. The AI automatically applies mission priority hierarchies, selects optimal 6+ minute passes, and balances load across Bangalore, Sriharikota, and Hassan. This is artificial intelligence solving real Indian space challenges.
 
@@ -65,39 +65,114 @@ Our Graph Neural Network uses multi-head attention mechanisms to understand sate
 The validation is rock-solid: 99.7% accuracy against NASA position data, cross-verified with ISRO ground station logs, zero scheduling conflicts in 1000+ test scenarios. This AI doesn't just work - it excels in real-world conditions where human operators struggle.
 
 ---
+## 7. Future Scope & Vision (1.5 min) - *[YOU]*
 
-## Market Impact & Future Vision
+### Phase 1: Autonomous Constellations (2025-2026)
+"Imagine satellites that manage themselves:"
+- *Self-Healing Networks*: When a satellite fails, AI automatically reconfigures the entire constellation
+- *Predictive Maintenance*: ML predicts component failures 6 months in advance
+- *Autonomous Deployment*: New satellites integrate seamlessly without human intervention
 
-Project Astraeus transforms the entire space economy. For ISRO, we deliver ₹500 crore annual savings and real-time disaster response. Globally, we turn satellite internet from 40% to 65% utilization, generating $2 billion additional revenue. Our AI prevents collisions among 9,000+ active satellites automatically.
+### Phase 2: Multi-Planetary Networks (2026-2030)
+"As humanity expands beyond Earth, so does our vision:"
+- *Mars-Earth Relay*: Optimize 20-minute light-delay communications across 400 million kilometers
+- *Lunar Gateway Integration*: Include Moon-based relay stations in scheduling algorithms
+- *Deep Space Networks*: Extend to Jupiter, Saturn missions with extreme latency optimization
 
-Here's our competitive edge: Traditional systems achieve 25% efficiency through manual scheduling. Commercial solutions reach 35% with basic algorithms. SpaceX Starlink hits 45% with proprietary optimization. Project Astraeus achieves 65%+ efficiency with full AI that any space agency can use.
+### Phase 3: Quantum-Enhanced Optimization (2030+)
+"The next frontier combines quantum computing with AI:"
+- *Quantum Annealing*: Leverage quantum computers for ultra-complex constellation optimization
+- *Hybrid Classical-Quantum*: Combine GNN+RL with quantum algorithms for exponential speedup
+- *Quantum Communication*: Integrate quantum satellite networks for unhackable space communications
 
-The future belongs to AI-driven space operations. While SpaceX builds closed systems, we create open platforms. While Amazon uses batch processing, we deliver real-time intelligence. While others focus on hardware, we pioneer the software that makes hardware smart.
+### Phase 4: Breakthrough Technologies & Future Disruption (2030-2035)
+"We're positioning for technologies that don't exist yet:"
 
-Imagine satellites that heal themselves when others fail. Imagine Mars-Earth communications optimized across 400 million kilometers. Imagine quantum-enhanced networks that make today's internet look primitive. This isn't science fiction — it's our roadmap.
+#### 🧬 Bio-Inspired Space Networks
+- *DNA Storage Satellites*: Store petabytes of data in biological molecules for deep space missions
+- *Evolutionary Algorithms*: Satellite constellations that evolve and adapt like living organisms
+- *Swarm Intelligence*: Collective behavior patterns inspired by ant colonies and bee hives
+- *Competitive Edge*: While others focus on hardware, we're pioneering biological-digital hybrids
 
-We're not just competing with today's companies. We're building tomorrow's space infrastructure. Every satellite becomes smarter. Every mission becomes more efficient. Every byte of space data reaches Earth faster. That's the Astraeus advantage.
+#### 🌌 Interstellar Communication Networks
+- *Alpha Centauri Relay*: Prepare for humanity's first interstellar communication needs
+- *Breakthrough Starshot Integration*: Coordinate with nano-probe missions to nearby stars
+- *Light-Speed Optimization*: AI algorithms that work across 4.3-year communication delays
+- *Market Opportunity*: $1 trillion interstellar economy by 2040
+
+#### 🔬 Neuromorphic Space Computing
+- *Brain-Chip Satellites*: Ultra-low power AI processing inspired by human neurons
+- *Synaptic Learning*: Satellites that learn and adapt like biological neural networks
+- *Collective Consciousness*: Distributed intelligence across entire satellite constellations
+- *Performance Leap*: 10,000x efficiency improvement over traditional processors
+
+### Commercial Expansion Roadmap
+"Our technology enables trillion-dollar markets:"
+
+#### Space Internet Revolution
+- *Global Coverage*: 100% Earth coverage with 99.9% uptime
+- *Latency Optimization*: Sub-50ms global internet via AI routing
+- *Dynamic Bandwidth*: Real-time allocation based on demand patterns
+- *Market Size*: $500B space internet market by 2030
+
+#### Disaster Response Networks
+- *Emergency Protocols*: Automatic priority override for disaster satellites
+- *Real-time Coordination*: AI coordinates rescue operations across multiple agencies
+- *Predictive Deployment*: Pre-position satellites before predicted disasters
+- *Social Impact*: Save 100,000+ lives annually through faster disaster response
+
+#### Space Traffic Management
+- *Collision Avoidance*: AI prevents space debris incidents automatically
+- *Orbital Slot Optimization*: Maximize satellite density while ensuring safety
+- *International Coordination*: Multi-agency AI cooperation for global space safety
+- *Economic Value*: Prevent $50B+ in satellite collision damages
+
+### Future Company Disruption Timeline
+"Here's how we'll outpace tomorrow's competitors:"
+
+#### 2025-2027: The AI Space Race
+**🏁 Our Position**: First-mover advantage in GNN-based satellite scheduling
+- *SpaceX*: Still using traditional optimization, 2-3 years behind our AI approach
+- *Blue Origin*: Focused on launch vehicles, no advanced scheduling technology
+- *Virgin Galactic*: Tourism-focused, not addressing constellation management
+- *Our Advantage*: Production-ready AI while competitors are still in R&D
+
+#### 2027-2030: The Quantum Leap
+**⚡ Our Evolution**: Quantum-enhanced satellite optimization
+- *IBM Quantum*: General quantum computing, not space-specialized
+- *Google Quantum AI*: Research-focused, no commercial space applications
+- *Microsoft Azure Quantum*: Cloud-based, not suitable for real-time satellite control
+- *Our Edge*: Space-hardened quantum algorithms with proven performance
+
+#### 2030-2035: The Consciousness Shift
+**🧠 Our Transformation**: Neuromorphic satellite swarms
+- *Intel Neuromorphic*: General-purpose brain chips, not space-optimized
+- *IBM TrueNorth*: Limited scalability for constellation management
+- *Emerging Startups*: Years behind our integrated AI-hardware approach
+- *Our Dominance*: First truly intelligent satellite constellation
+
+### Strategic Moats Against Future Disruption
+"How we stay ahead of companies that don't exist yet:"
+
+#### Technology Moats
+- *Patent Portfolio*: 50+ patents in GNN-based satellite scheduling by 2026
+- *Data Advantage*: Largest database of satellite scheduling scenarios globally
+- *Algorithm Evolution*: Self-improving AI that gets better with every deployment
+- *Hardware Integration*: Custom AI chips designed specifically for space applications
+
+#### Market Moats
+- *Network Effects*: More satellites using our system = better performance for all
+- *Switching Costs*: Agencies invest heavily in training and integration
+- *Regulatory Capture*: Help write international standards for AI space traffic management
+- *Ecosystem Lock-in*: Become the Android/iOS of satellite constellation management
+
+#### Talent Moats
+- *AI Expertise*: World's leading team in space-specific Graph Neural Networks
+- *Domain Knowledge*: Deep understanding of orbital mechanics + AI optimization
+- *Research Partnerships*: Collaborations with top universities and space agencies
+- *Continuous Innovation*: 30% of revenue reinvested in R&D for next-generation technologies
 
 ---
-
-## Future Vision & Roadmap
-
-Imagine satellites that manage themselves. When one fails, AI automatically reconfigures the entire constellation. Machine learning predicts component failures months in advance. New satellites integrate seamlessly without human intervention. This isn't science fiction — it's our immediate roadmap.
-
-As humanity expands beyond Earth, so does our vision. We'll optimize Mars-Earth communications across 400 million kilometers with 20-minute light delays. Lunar Gateway stations join our scheduling algorithms. Deep space networks extend to Jupiter and Saturn missions with extreme latency optimization.
-
-The next frontier combines quantum computing with AI. Quantum annealing handles ultra-complex constellation optimization. Hybrid classical-quantum algorithms provide exponential speedup. Quantum satellite networks enable unhackable space communications.
-
-We're positioning for breakthrough technologies that don't exist yet. Bio-inspired networks store petabytes in DNA molecules for deep space missions. Satellite constellations evolve like living organisms. Neuromorphic brain-chip satellites achieve 10,000x efficiency improvement. Interstellar communication networks prepare for humanity's expansion to nearby stars.
-
-Our technology enables trillion-dollar markets. Space internet achieves 100% Earth coverage with 99.9% uptime. Emergency protocols automatically prioritize disaster satellites, saving 100,000+ lives annually. AI prevents $50 billion in satellite collision damages through automated space traffic management.
-
-We stay ahead through strategic advantages. Our patent portfolio, largest database of satellite scenarios, and self-improving algorithms create technology moats. Network effects mean more satellites using our system improves performance for all. We're building the universal platform for satellite constellation management — the foundation everyone adopts.
-
-While SpaceX uses traditional optimization and Blue Origin focuses on launch vehicles, we have production-ready AI. While IBM and Google develop general quantum computing, we're creating space-hardened quantum algorithms. While others build hardware, we're pioneering the intelligence layer that makes everything work together.
-
----
-
 ## Live Crisis Scenario Demo - *[ANANYA]*
 
 Let me show you our emergency response capability. I'm activating our California Wildfire crisis scenario. Watch as the system automatically detects the emergency and enables priority override. We have 12 Earth observation satellites available, 4 ground stations in range across California and Nevada, and 2.3 TB of critical imagery backlog.

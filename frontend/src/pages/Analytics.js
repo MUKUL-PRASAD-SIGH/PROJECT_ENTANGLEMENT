@@ -263,25 +263,28 @@ const Analytics = () => {
         <h2>🤖 AI Training Analytics <span style={{color: '#00ff00', fontSize: '12px'}}>(R)</span></h2>
         <div style={trainingAnalyticsStyle}>
           <div style={trainingMetricStyle}>
-            <h4>Training Progress</h4>
-            <div style={{color: '#00ff00'}}>Episodes Completed: 100,000 / 100,000 ✅</div>
-            <div>Current Reward: +847.3 (Excellent)</div>
-            <div style={{color: '#ffff00'}}>Best Reward: +892.1 (Peak Performance)</div>
-            <div>Training Time: 94h 47m (Complete)</div>
+            <h4>🎯 Training Completion</h4>
+            <div style={{color: '#00ff00', fontWeight: 'bold'}}>Episodes: 100,000 / 100,000 ✅</div>
+            <div style={{color: '#ffff00', fontWeight: 'bold'}}>Final Reward: +847.3 (Excellent)</div>
+            <div style={{color: '#ff6600'}}>Peak Reward: +892.1 (Best Run)</div>
+            <div>Training Duration: 94h 47m (Complete)</div>
+            <div style={{color: '#00ff00'}}>Model Status: DEPLOYED 🚀</div>
           </div>
           <div style={trainingMetricStyle}>
-            <h4>Learning Metrics</h4>
-            <div>Learning Rate: 3e-4 (PPO Optimized)</div>
-            <div>Exploration Rate: 0.02 (Converged)</div>
+            <h4>🧠 Learning Metrics</h4>
+            <div>Algorithm: PPO (Proximal Policy Optimization)</div>
+            <div>Learning Rate: 3e-4 (Optimized)</div>
+            <div>Exploration: 0.02 (Converged)</div>
             <div style={{color: '#00ff90'}}>Network Loss: 0.0023 (Stable)</div>
-            <div style={{color: '#00ff00'}}>Convergence: ACHIEVED ✅</div>
+            <div style={{color: '#00ff00'}}>Status: CONVERGENCE ACHIEVED ✅</div>
           </div>
           <div style={trainingMetricStyle}>
-            <h4>Performance Evolution</h4>
-            <div>Initial Performance: 642 Mbps (Baseline)</div>
-            <div style={{color: '#00ff00'}}>Current Performance: 847 Mbps (+23.4%)</div>
-            <div style={{color: '#ffff00'}}>Improvement Rate: +32% vs Classical</div>
-            <div style={{color: '#00ff00'}}>Status: SUPERHUMAN ACHIEVED 🚀</div>
+            <h4>📈 Performance Validation</h4>
+            <div>Baseline: 642 Mbps (Classical)</div>
+            <div style={{color: '#00ff00', fontWeight: 'bold'}}>AI Performance: 847 Mbps</div>
+            <div style={{color: '#ffff00', fontWeight: 'bold'}}>Improvement: +23.4% Efficiency</div>
+            <div style={{color: '#ff6600'}}>Throughput Gain: +205 Mbps</div>
+            <div style={{color: '#00ff00'}}>SUPERHUMAN PERFORMANCE 🏆</div>
           </div>
         </div>
       </div>

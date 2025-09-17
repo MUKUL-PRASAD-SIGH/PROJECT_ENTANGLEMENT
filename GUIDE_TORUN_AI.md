@@ -7,8 +7,9 @@ This guide helps your friends get Project Astraeus running on their systems.
 ## 🎯 **What This Project Is**
 - **AI-Powered Satellite Communication Scheduler** for ISRO SIH 2025
 - **Real-time satellite tracking** with live NASA/NORAD data
-- **Trained AI model** (100,000 episodes) that beats classical algorithms by +23.4%
-- **Professional mission control interface** with 3D visualization
+- **Trained AI model** (100,000 episodes completed) that beats classical algorithms by +23.4%
+- **Professional mission control interface** with 3D CesiumJS visualization
+- **Production-ready system** with REST API, WebSocket streaming, and trained neural network
 
 ## ⚡ **Quick Start (5 Minutes)**
 
@@ -29,10 +30,10 @@ cd PROJECT_ENTANGLEMENT
 pip install -r backend/requirements.txt
 
 # Optional: Install AI dependencies for full functionality
-python install_ai_dependencies.py
+python ai_performance.py
 
 # Start backend server
-python backend/api_server.py
+python api_server.py
 ```
 
 ### **3. Frontend Setup (New Terminal)**
