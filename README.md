@@ -44,6 +44,17 @@ An AI-powered Mission Control system that creates a **Digital Twin** of the sate
 
 ---
 
+## 📂 Repository Structure
+
+*   **`backend/`**: [README](backend/README.md) - Python Flask API, Orbital Simulator, and AI Engine.
+    *   **`tests/`**: [README](backend/tests/README.md) - Backend test suite.
+*   **`frontend/`**: [README](frontend/README.md) - React-based Mission Control Dashboard.
+*   **`docs/`**: [README](docs/README.md) - Comprehensive project documentation, API references, and architecture guides.
+*   **`model&datareq/`**: [README](model&datareq/README.md) - Trained AI models and training data.
+*   **`scripts/`**: [README](scripts/README.md) - Utility scripts for setup and training.
+
+---
+
 ## 🎯 Development Phases
 
 ## Phase 1: Foundation & Core Logic (Hours 1-12)
