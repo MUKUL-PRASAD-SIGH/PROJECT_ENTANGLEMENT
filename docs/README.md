@@ -21,6 +21,7 @@ This directory serves as the central knowledge base for Project Astraeus.
     *   `MOCK_TO_REAL_ROADMAP.md`: Transition plan from mock data to live systems.
     *   `PITCH.md`: Project pitch deck content.
 
-*   **`status/`**: Progress reports and summaries.
+*   **status/**: Progress reports and summaries.
     *   `PROJECT_STATUS.md`: Overall project health and status.
     *   `PHASE_X_SUMMARY.md`: Detailed breakdown of completed phases.
+    *   `PROBLEMS_AND_CHALLENGES.md`: Log of technical issues, solutions, and ongoing challenges.
