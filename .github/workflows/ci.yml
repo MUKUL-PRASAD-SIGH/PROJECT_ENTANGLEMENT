@@ -21,6 +21,7 @@ jobs:
       - name: Install backend dependencies
         run: |
           pip install -r requirements.txt
+          pip install pytest
 
       - name: Run backend tests (if any)
         run: |
