@@ -1,3 +1,4 @@
+![CI](https://github.com/MUKUL-PRASAD-SIGH/PROJECT_ENTANGLEMENT/actions/workflows/ci.yml/badge.svg)
 # 🚀 PROJECT ASTRAEUS: Mission Control 🌌
 
 > *Solving the traffic jam in the sky, one orbit at a time.*
