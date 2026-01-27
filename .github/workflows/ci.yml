@@ -25,6 +25,7 @@ jobs:
 
       - name: Run backend tests (if any)
         run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/backend
           if [ -d "backend/tests" ]; then pytest backend/tests; else echo "No backend tests"; fi
 
   frontend:
