@@ -15,6 +15,48 @@ Welcome to **Project Astraeus**! You are now entering the digital twin of our or
   <a href="https://astraeus-frontend.onrender.com/">🔗 Live Demo</a><br>
   <i>AI-powered Mission Control System with digital-twin simulation, real-time monitoring, and intelligent decision support for complex operational environments.</i>
 </li>
+<li>
+
+<h2>🚀 Project Astraeus</h2>
+<h4>🛰️ AI Mission Control • Digital Twin • Real-Time Intelligence</h4>
+
+<p>
+<a href="https://astraeus-frontend.onrender.com/">
+<b>🌐 LAUNCH LIVE SYSTEM</b>
+</a>
+</p>
+
+<p>
+<i>
+Next-generation AI-powered Mission Control System enabling digital-twin simulation, live operational monitoring, predictive analytics, and intelligent decision orchestration.
+</i>
+</p>
+
+---
+
+<p>
+📸 <b>Snapshots:</b><br>
+<a href="https://drive.google.com/drive/folders/1AHVk5izQVH7GNwUCNlqMjTkejOCo__C2">
+View Screenshots
+</a>
+</p>
+
+<p>
+📑 <b>Presentation (PPT):</b><br>
+<a href="https://drive.google.com/file/d/1J7chNunefsQI_66kI-Rw7o2oZzRiuaWf/view">
+View Project PPT
+</a>
+</p>
+
+<p>
+🎥 <b>Video Demo:</b><br>
+<a href="https://youtu.be/HiNK79Ijav8">
+Watch Full Demo
+</a>
+</p>
+
+</li>
+
 
 
 ## 📋 Mission Briefing (Table of Contents)
