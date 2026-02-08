@@ -10,12 +10,7 @@
 Welcome to **Project Astraeus**! You are now entering the digital twin of our orbital network. We use **Graph Neural Networks** and **Reinforcement Learning** to teach satellites how to talk to ground stations without crashing the network. It's like air traffic control, but way cooler because it's in space. 🛰️✨
 
 ---
-<li>
-  <b>🚀 Project Astraeus (Mission Control System)</b><br>
-  <a href="https://astraeus-frontend.onrender.com/">🔗 Live Demo</a><br>
-  <i>AI-powered Mission Control System with digital-twin simulation, real-time monitoring, and intelligent decision support for complex operational environments.</i>
-</li>
-<li>
+
 
 <h2>🚀 Project Astraeus</h2>
 <h4>🛰️ AI Mission Control • Digital Twin • Real-Time Intelligence</h4>
