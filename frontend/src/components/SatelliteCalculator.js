@@ -130,7 +130,7 @@ const SatelliteCalculator = () => {
 
   return (
     <div style={{ background: '#1a1a1a', padding: '20px', borderRadius: '8px', color: '#fff' }}>
-      <h3>🧮 Satellite.js Calculator</h3>
+      <h3> Satellite.js Calculator</h3>
       
       {/* TLE Input */}
       <div style={{ marginBottom: '20px' }}>

@@ -94,7 +94,7 @@ const linkStyle = {
 };
 
 const activeLinkStyle = {
-  background: 'linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dafb77 100%)',
+  background: 'linear-gradient(135deg, #831919ca 0%, #a27b269f 50%, #48dafb77 100%)',
   boxShadow: '0 12px 40px rgba(255, 107, 107, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
   transform: 'translateY(-2px) scale(1.05)',
   border: '2px solid rgba(255, 255, 255, 0.3)',

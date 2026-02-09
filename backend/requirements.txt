@@ -9,6 +9,7 @@ numpy>=1.24.0
 pandas>=2.0.0
 eventlet>=0.33.0
 simple-websocket>=0.10.1
+gunicorn>=21.2.0
 
 # AI Model Dependencies (Optional - for full AI functionality)
 # Install with: pip install stable-baselines3[extra] torch

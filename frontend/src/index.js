@@ -105,7 +105,7 @@ class FloatingStars {
 
     this.starsContainer.appendChild(shootingStar);
 
-    // Remove after animation completes (add buffer time for longer duration)
+   
     setTimeout(() => {
       if (shootingStar.parentNode) {
         shootingStar.parentNode.removeChild(shootingStar);
@@ -114,15 +114,13 @@ class FloatingStars {
   }
 
   startShootingStars() {
-    // First shooting star after 5-10 minutes (extremely long wait)
-    const firstDelay = 300000 + Math.random() * 300000; // 5-10 minutes
+    const firstDelay = 3000 + Math.random() * 3000; // 3-6 seconds
     setTimeout(() => {
       this.createShootingStar();
 
       // Then create shooting stars at ultra-long, random intervals
       const scheduleNextShootingStar = () => {
-        // Random interval between 10-30 minutes (extremely infrequent)
-        const nextInterval = 600000 + Math.random() * 1200000; // 10-30 minutes
+        const nextInterval = 6000 + Math.random() * 12000; // 6-18 seconds
         
         setTimeout(() => {
           // Only 5% chance to create shooting star when interval hits (ultra rare)

@@ -131,7 +131,9 @@ const closeButtonStyle = {
   padding: '0',
   marginLeft: '1rem',
   opacity: 0.7,
-  transition: 'opacity 0.2s'
+  transition: 'opacity 0.2s',
+  fontFamily: "'Orbitron', monospace",
+  fontWeight: '600'
 };
 
 // Helper function to show notifications
@@ -141,6 +143,4 @@ export const showNotification = (type, title, message, duration = 5000) => {
   });
   window.dispatchEvent(event);
 };
-
 export default NotificationSystem;
-

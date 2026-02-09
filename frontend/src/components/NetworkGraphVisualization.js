@@ -28,12 +28,12 @@ const NetworkGraphVisualization = () => {
       ]);
       
       const mockSatellites = [
-        { name: '🎭 ISS (Mock)', latitude: 19.41, longitude: -92.00, altitude: 419.05 },
-        { name: '🎭 HUBBLE (Mock)', latitude: 28.5, longitude: -80.6, altitude: 547.0 }
+        { name: ' ISS (Mock)', latitude: 19.41, longitude: -92.00, altitude: 419.05 },
+        { name: ' HUBBLE (Mock)', latitude: 28.5, longitude: -80.6, altitude: 547.0 }
       ];
       
       const mockWindows = [
-        { satellite: '🎭 ISS (Mock)', ground_station: { name: 'ISRO_Bangalore' }, max_elevation: 72.8, duration_minutes: 6.0, is_active: true }
+        { satellite: ' ISS (Mock)', ground_station: { name: 'ISRO_Bangalore' }, max_elevation: 72.8, duration_minutes: 6.0, is_active: true }
       ];
 
       const satellites = satellitesRes.data.satellites;

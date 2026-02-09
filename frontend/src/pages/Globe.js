@@ -61,6 +61,11 @@ const Globe = () => {
       initializingRef.current = true;
 
       try {
+        // Set Cesium Ion access token if not already set
+        if (!window.Cesium.Ion.defaultAccessToken) {
+          window.Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5N2VmNjUxZS1jYTYzLTQwMDItYTI4MS1lZjQ0YjQxYWMxZjgiLCJpZCI6OTAxNjUsImlhdCI6MTYyMTE4NzI5Mn0.w-nLV4Z8xr1x0H_7LmqplOxRjzwBwDNkLcbVqD_3X9s';
+        }
+        
         // Destroy any existing viewers first
         if (window.cesiumViewer) {
           try {

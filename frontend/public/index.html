@@ -14,6 +14,16 @@
     crossorigin="anonymous">
   </script>
     <link href="https://cesium.com/downloads/cesiumjs/releases/1.133/Build/Cesium/Widgets/widgets.css" crossorigin="anonymous" rel="stylesheet">
+    <script>
+      // Set Cesium Ion access token
+      window.CESIUM_BASE_URL = 'https://cesium.com/downloads/cesiumjs/releases/1.133/Build/Cesium/';
+      window.addEventListener('load', function() {
+        if (window.Cesium) {
+          // Use a default public token for testing
+          window.Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5N2VmNjUxZS1jYTYzLTQwMDItYTI4MS1lZjQ0YjQxYWMxZjgiLCJpZCI6OTAxNjUsImlhdCI6MTYyMTE4NzI5Mn0.w-nLV4Z8xr1x0H_7LmqplOxRjzwBwDNkLcbVqD_3X9s';
+        }
+      });
+    </script>
     <title>Astraeus</title>
   </head>
   <body>

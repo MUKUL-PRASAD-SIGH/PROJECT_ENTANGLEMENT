@@ -141,13 +141,13 @@ const LiveCommunicationWindows = () => {
                 </div>
                 <div className="window-details">
                   <div className="time-info">
-                    <p>🕐 Start: {startTime.toLocaleTimeString()}</p>
-                    <p>🕑 End: {endTime.toLocaleTimeString()}</p>
-                    <p>⏱️ Duration: {formatDuration(window.duration_minutes)}</p>
+                    <p> Start: {startTime.toLocaleTimeString()}</p>
+                    <p> End: {endTime.toLocaleTimeString()}</p>
+                    <p> Duration: {formatDuration(window.duration_minutes)}</p>
                   </div>
                   <div className="technical-info">
-                    <p>📐 Max Elevation: {(window.max_elevation_degrees || window.max_elevation || 0).toFixed(1)}°</p>
-                    <p>📊 Quality:
+                    <p> Max Elevation: {(window.max_elevation_degrees || window.max_elevation || 0).toFixed(1)}°</p>
+                    <p> Quality:
                       <span 
                         style={{ 
                           color: getQualityColor(window.quality_score || 0),
@@ -188,14 +188,14 @@ const LiveCommunicationWindows = () => {
             onClick={loadWindows}
             disabled={isLoading}
           >
-            {isLoading ? '🔄 Loading...' : '🔄 Refresh'}
+            {isLoading ? ' Loading...' : '🔄 Refresh'}
           </button>
         </div>
       </div>
 
       {error && (
         <div className="error-message">
-          ⚠️ {error}
+           {error}
         </div>
       )}
 
@@ -228,8 +228,8 @@ const LiveCommunicationWindows = () => {
 
       {windows.length > 0 && (
         <div className="windows-summary">
-          <p>📊 Found {windows.length} communication window{windows.length !== 1 ? 's' : ''}</p>
-          <p>⏰ Next 6 hours • Min elevation: 10°</p>
+          <p> Found {windows.length} communication window{windows.length !== 1 ? 's' : ''}</p>
+          <p> Next 6 hours • Min elevation: 10°</p>
         </div>
       )}
     </div>

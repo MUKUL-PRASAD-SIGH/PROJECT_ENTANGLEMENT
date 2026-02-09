@@ -151,7 +151,7 @@ const LiveSatelliteTracker = () => {
       
       {lastUpdate && (
         <div className="last-update">
-          📅 Last Update: {lastUpdate.toLocaleTimeString()}
+          Last Update: {lastUpdate.toLocaleTimeString()}
         </div>
       )}
       
@@ -166,13 +166,13 @@ const LiveSatelliteTracker = () => {
               
               <div className="position-data">
                 {satellite.latitude !== undefined && (
-                  <p>📍 Lat: {satellite.latitude.toFixed(4)}°</p>
+                  <p> Lat: {satellite.latitude.toFixed(4)}°</p>
                 )}
                 {satellite.longitude !== undefined && (
-                  <p>📍 Lon: {satellite.longitude.toFixed(4)}°</p>
+                  <p> Lon: {satellite.longitude.toFixed(4)}°</p>
                 )}
                 {satellite.altitude !== undefined && (
-                  <p>🚀 Alt: {satellite.altitude.toFixed(1)} km</p>
+                  <p> Alt: {satellite.altitude.toFixed(1)} km</p>
                 )}
                 {satellite.velocity && (
                   <p>⚡ Speed: {satellite.velocity.toFixed(1)} km/s</p>
@@ -192,11 +192,11 @@ const LiveSatelliteTracker = () => {
         ) : (
           <div className="no-data">
             {connectionStatus === 'connecting' ? (
-              <div>🔄 Connecting to satellite tracker...</div>
+              <div> Connecting to satellite tracker...</div>
             ) : connectionStatus === 'error' ? (
-              <div>❌ Unable to load satellite data</div>
+              <div> Unable to load satellite data</div>
             ) : (
-              <div>📡 Waiting for satellite data...</div>
+              <div> Waiting for satellite data...</div>
             )}
           </div>
         )}
@@ -204,9 +204,9 @@ const LiveSatelliteTracker = () => {
       
       {satellites.length > 0 && (
         <div className="tracker-summary">
-          <p>📊 Tracking {satellites.length} satellite{satellites.length !== 1 ? 's' : ''}</p>
+          <p> Tracking {satellites.length} satellite{satellites.length !== 1 ? 's' : ''}</p>
           {isConnected && (
-            <p>🔴 Live updates every 10 seconds</p>
+            <p> Live updates every 10 seconds</p>
           )}
         </div>
       )}
